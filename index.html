@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="page.title">FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Merriweather', 'serif'],
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    body {
+        animation: fadeIn 1s ease-in-out forwards;
+        opacity: 0;
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans">
+    <div class="relative bg-black">
+
+    <div class="absolute inset-0">
+        <img src="./assets/bg_hero_section.png"
+             alt="Background" class="object-cover w-full h-full">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+
+
+    <header class="relative z-10 bg-black bg-opacity-40">
+        <div class="container mx-auto px-6 py-1 flex justify-between items-center">
+            <a href="index.html" class="w-1/4">
+                <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+            </a>
+
+            <nav class="hidden md:flex w-1/2 justify-center items-center space-x-8 text-sm font-medium text-white">
+                <a href="index.html" class="hover:text-yellow-400 transition-colors" data-key="nav.home">Trang chủ</a>
+                <a href="recommend/recommend.html" class="hover:text-yellow-400 transition-colors" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                <a href="about/about.html" class="hover:text-yellow-400 transition-colors" data-key="nav.about">Về chúng tôi</a>
+                <a href="faq/faq.html" class="hover:text-yellow-400 transition-colors" data-key="nav.faq">FAQ</a>
+                <a href="contact/contact.html" class="hover:text-yellow-400 transition-colors" data-key="nav.contact">Liên hệ</a>
+            </nav>
+
+            <div class="w-1/4 flex justify-end items-center space-x-6">
+
+                <div class="flex items-center bg-black bg-opacity-50 rounded-full p-1">
+                    <a href="#" id="btn-vi" class="bg-yellow-400 text-black text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en" class="text-white text-xs font-bold rounded-full px-3 py-1 hover:bg-gray-700 transition-colors">
+                        EN
+                    </a>
+                </div>
+                <a href=".\sign_in\sign_in.html" class="text-white font-medium text-sm hover:text-yellow-400 transition-colors" data-key="nav.signin">
+                    Đăng Nhập
+                </a>
+                <a href=".\register\register.html" class="bg-yellow-400 text-black font-bold text-sm px-6 py-2 rounded-md hover:bg-yellow-500 transition-colors" data-key="nav.signup">
+                    Đăng Ký
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20 pb-72">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+            <div class="text-white">
+               <h1 class="text-5xl lg:text-7xl font-extrabold my-4 tracking-wide">
+                    <span class="block pb-2 lg:pb-6">
+                        <span data-key="hero.line1.part1">ĂN</span>
+                        <span class="text-yellow-400" data-key="hero.line1.part2">CHUẨN GU</span>
+                    </span>
+                    <span class="block">
+                        <span data-key="hero.line2.part1">ĐU</span>
+                        <span class="text-yellow-400" data-key="hero.line2.part2">CHUẨN Ý</span>
+                    </span>
+                </h1>
+                <p class="text-gray-300 max-w-lg mb-8" data-key="hero.description">
+                    Nhập món ăn, nhà hàng, hoặc loại ẩm thực bạn muốn tìm trong khu vực của mình.
+                </p>
+
+                <div class="relative flex w-full max-w-md bg-white rounded-md shadow-lg">
+                    <input type="text" id="input-location" placeholder="Nhập địa chỉ của bạn..." class="flex-1 py-4 px-5 text-gray-700 rounded-l-md focus:outline-none">
+                    <input type="text" id="input-search" placeholder="Món bạn muốn ăn..." class="flex-1 py-4 px-5 text-gray-700 border-l border-gray-400 focus:outline-none">
+                    <button class="bg-yellow-400 text-black px-5 rounded-r-md hover:bg-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mt-12">
+    <h3 class="font-bold text-3xl mb-4 text-white" data-key="popular.title">Popular Food</h3>
+    <div class="grid grid-cols-3 gap-4">
+        <div class="group cursor-pointer">
+            <img src="assets/vietnam_food.png" alt="Vietnamese Food"
+                 class="w-full h-48 object-cover rounded-lg transition-all duration-300
+                        group-hover:-translate-y-2 group-hover:shadow-2xl">
+            <p class="text-white font-medium text-center mt-3 transition-colors duration-300 group-hover:text-yellow-400" data-key="popular.item1">Việt Nam</p>
+        </div>
+        <div class="group cursor-pointer">
+            <img src="assets/korean_food.png" alt="Korean Food"
+                 class="w-full h-48 object-cover rounded-lg transition-all duration-300
+                        group-hover:-translate-y-2 group-hover:shadow-2xl">
+            <p class="text-white font-medium text-center mt-3 transition-colors duration-300 group-hover:text-yellow-400" data-key="popular.item2">Hàn Quốc</p>
+        </div>
+        <div class="group cursor-pointer">
+            <img src="assets/japan_food.png" alt="Japanese Food"
+                 class="w-full h-48 object-cover rounded-lg transition-all duration-300
+                        group-hover:-translate-y-2 group-hover:shadow-2xl">
+            <p class="text-white font-medium text-center mt-3 transition-colors duration-300 group-hover:text-yellow-400" data-key="popular.item3">Nhật Bản</p>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="absolute -bottom-1 left-0 w-full" style="z-index: 5;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f3f4f6" fill-opacity="1" d="M0,192L48,170.7C96,149,192,107,288,112C384,117,480,171,576,170.7C672,171,768,117,864,112C960,107,1056,149,1152,160C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+</div>
+
+<footer class="bg-black text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+
+            <div class="md:col-span-2">
+                <a href="index.html" class="inline-block mb-4">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                </a>
+                <p class="text-base mt-2" data-key="footer.tagline">
+                    Cẩm nang của những tín đồ ẩm thực
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-emerald-light mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                <nav class="flex flex-col space-y-2 text-sm">
+                    <a href="index.html" class="hover:text-yellow-400 transition-colors" data-key="nav.home">Trang chủ</a>
+                    <a href="recommend/recommend.html" class="hover:text-yellow-400 transition-colors" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                    <a href="about/about.html" class="hover:text-yellow-400 transition-colors" data-key="nav.about">Về chúng tôi</a>
+                </nav>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-emerald-light mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                <nav class="flex flex-col space-y-2 text-sm">
+                    <a href="contact/contact.html" class="hover:text-yellow-400 transition-colors" data-key="nav.contact">Liên hệ</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors" data-key="footer.privacy">Chính sách bảo mật</a>
+                    <a href="faq/faq.html" class="hover:text-yellow-400 transition-colors" data-key="nav.faq">FAQ</a>
+                </nav>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-emerald-light mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                <div class="flex space-x-4">
+                     <a href="#" class="text-gray-400 hover:text-white" aria-label="Facebook">
+                         <i class="fab fa-facebook-f fa-lg"></i>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white" aria-label="TikTok">
+                         <i class="fab fa-tiktok fa-lg"></i>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white" aria-label="Instagram">
+                         <i class="fab fa-instagram fa-lg"></i>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white" aria-label="Zalo">
+                        <i class="fas fa-comment fa-lg"></i>
+                     </a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="border-t border-gray-700 mb-8">
+        <p class="text-sm text-center" data-key="footer.copyright">
+            &copy; 2025 FoodiePro. All Rights Reserved.
+        </p>
+    </div>
+</footer>
+
+<script>
+    const translations = {
+        'vi': {
+            'page.title': 'FoodiePro',
+            'nav.home': 'Trang chủ',
+            'nav.recommend': 'Nhà hàng đề xuất',
+            'nav.about': 'Về chúng tôi',
+            'nav.faq': 'FAQ',
+            'nav.contact': 'Liên hệ',
+            'nav.signin': 'Đăng Nhập',
+            'nav.signup': 'Đăng Ký',
+            'hero.line1.part1': 'ĂN',
+            'hero.line1.part2': 'CHUẨN GU',
+            'hero.line2.part1': 'ĐU',
+            'hero.line2.part2': 'CHUẨN Ý',
+            'hero.description': 'Nhập món ăn, nhà hàng, hoặc loại ẩm thực bạn muốn tìm trong khu vực của mình.',
+            'placeholder.location': 'Nhập địa chỉ của bạn...',
+            'placeholder.search': 'Món bạn muốn ăn...',
+            'popular.title': 'Ẩm Thực Nổi Bật',
+            'popular.item1': 'Việt Nam',
+            'popular.item2': 'Hàn Quốc',
+            'popular.item3': 'Nhật Bản',
+            'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+            'footer.mainTitle': 'CHÍNH',
+            'footer.supportTitle': 'HỖ TRỢ',
+            'footer.terms': 'Điều khoản & Điều kiện',
+            'footer.privacy': 'Chính sách bảo mật',
+            'footer.socialsTitle': 'MẠNG XÃ HỘI',
+            'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+        },
+        'en': {
+            'page.title': 'FoodiePro - Discover Cuisines',
+            'nav.home': 'Home',
+            'nav.recommend': 'Recommendations',
+            'nav.about': 'About Us',
+            'nav.faq': 'FAQ',
+            'nav.contact': 'Contact',
+            'nav.signin': 'Sign In',
+            'nav.signup': 'Sign Up',
+            'hero.line1.part1': 'EAT',
+            'hero.line1.part2': 'YOUR WAY',
+            'hero.line2.part1': 'FIND',
+            'hero.line2.part2': 'YOUR TASTE',
+            'hero.description': 'Enter the dish, restaurant, or cuisine you want to find in your area.',
+            'placeholder.location': 'Enter your location...',
+            'placeholder.search': 'What do you want to eat...',
+            'popular.title': 'Popular Food',
+            'popular.item1': 'Vietnamese',
+            'popular.item2': 'Korean',
+            'popular.item3': 'Japanese',
+            'footer.tagline': 'A handbook for food lovers',
+            'footer.mainTitle': 'MAIN',
+            'footer.supportTitle': 'SUPPORT',
+            'footer.terms': 'Terms & Condition',
+            'footer.privacy': 'Privacy Policy',
+            'footer.socialsTitle': 'SOCIALS',
+            'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+        }
+    };
+
+    const btnVi = document.getElementById('btn-vi');
+    const btnEn = document.getElementById('btn-en');
+    const elementsToTranslate = document.querySelectorAll('[data-key]');
+    const inputLocation = document.getElementById('input-location');
+    const inputSearch = document.getElementById('input-search');
+    const pageTitle = document.querySelector('title');
+    const htmlTag = document.documentElement;
+
+    function setLanguage(lang) {
+        if (btnVi && btnEn) {
+            if (lang === 'vi') {
+                btnVi.classList.add('bg-yellow-400', 'text-black');
+                btnVi.classList.remove('text-white', 'hover:bg-gray-700');
+                btnEn.classList.add('text-white', 'hover:bg-gray-700');
+                btnEn.classList.remove('bg-yellow-400', 'text-black');
+            } else {
+                btnEn.classList.add('bg-yellow-400', 'text-black');
+                btnEn.classList.remove('text-white', 'hover:bg-gray-700');
+                btnVi.classList.add('text-white', 'hover:bg-gray-700');
+                btnVi.classList.remove('bg-yellow-400', 'text-black');
+            }
+        }
+
+        elementsToTranslate.forEach(element => {
+            const key = element.dataset.key;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        if (inputLocation) inputLocation.placeholder = translations[lang]['placeholder.location'];
+        if (inputSearch) inputSearch.placeholder = translations[lang]['placeholder.search'];
+        if (pageTitle) pageTitle.textContent = translations[lang]['page.title'];
+
+        htmlTag.setAttribute('lang', lang);
+        localStorage.setItem('language', lang);
+    }
+
+    if (btnVi) {
+        btnVi.addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('vi');
+        });
+    }
+
+   if (btnEn) {
+        btnEn.addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('font-sans');
+        const savedLang = localStorage.getItem('language') || 'vi';
+        setLanguage(savedLang);
+
+        const logoImg = document.querySelector('header img');
+        if (logoImg && logoImg.classList.contains('h-13')) {
+            logoImg.classList.remove('h-13');
+            logoImg.classList.add('h-[3.25rem]');
+        }
+         const footerLogoImg = document.querySelector('footer img');
+        if (footerLogoImg && footerLogoImg.classList.contains('h-16')) {
+             // Keep h-16 as requested for footer
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
