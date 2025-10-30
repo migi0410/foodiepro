@@ -96,6 +96,26 @@ app.post('/api/auth/login', async (req, res) => {
     }
 });
 
+// =========================
+// Serve static files (client)
+// =========================
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Đường dẫn đến thư mục client (nếu client nằm trong thư mục ../client)
+const clientPath = path.join(__dirname, "../client");
+
+// Cho phép Express phục vụ file tĩnh trong client
+app.use(express.static(clientPath));
+
+// Nếu user vào route không có trong API -> trả về index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientPath, "index.html"));
+});
+
 
 // --- Khởi động Server ---
 const PORT = process.env.PORT || 3000;
