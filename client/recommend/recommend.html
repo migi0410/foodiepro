@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="recommend.pageTitle">Nhà Hàng Đề Xuất - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#9CA3AF',
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    #recommendation-modal { transition: opacity 0.3s ease-in-out; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                 <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+                 </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-dark-text-primary">
+                     <a href="../index.html" class="hover:text-primary-yellow transition-colors" data-key="nav.home">Trang chủ</a>
+                     <a href="recommend.html" class="text-primary-yellow transition-colors font-semibold" data-key="nav.recommend">Nhà hàng</a>
+                     <a href="../about/about.html" class="hover:text-primary-yellow transition-colors" data-key="nav.about">Về chúng tôi</a>
+                     <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors" data-key="nav.faq">FAQ</a>
+                     <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors" data-key="nav.contact">Liên hệ</a>
+                 </nav>
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-recommend" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-recommend" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-dark-text-primary font-medium text-sm hover:text-primary-yellow transition-colors" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-primary-yellow text-black font-bold text-sm px-5 py-2 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-recommend" class="text-dark-text-primary hover:text-primary-yellow p-1 rounded hover:bg-dark-card md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+         <div id="mobile-menu-recommend"
+              class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-card shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+              <button id="mobile-menu-close-button-recommend" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                   &times;
+              </button>
+             <nav class="flex flex-col space-y-4 text-base font-medium text-dark-text-primary mt-10">
+                 <a href="../index.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                 <a href="recommend.html" class="text-primary-yellow transition-colors py-1 font-semibold" data-key="nav.recommend">Nhà hàng</a>
+                 <a href="../about/about.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.about">Về chúng tôi</a>
+                 <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.faq">FAQ</a>
+                 <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                 <hr class="border-gray-600 my-4">
+                 <a href="../sign_in/sign_in.html" class="hover:text-primary-yellow transition-colors py-2 text-center" data-key="nav.signin">
+                     Đăng Nhập
+                  </a>
+                  <a href="../register/register.html" class="bg-primary-yellow text-black font-bold py-2 rounded-md hover:bg-primary-yellow-darker transition-colors w-full text-center" data-key="nav.signup">
+                     Đăng Ký
+                  </a>
+             </nav>
+         </div>
+    </header>
+     <div id="overlay-recommend" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+
+    <main class="py-12 md:py-16">
+        <div class="container mx-auto px-6">
+
+            <section class="mb-16">
+                <h1 class="font-serif text-3xl md:text-4xl font-bold text-dark-text-primary mb-6 text-center" data-key="recommend.searchTitle">Tìm Kiếm Gợi Ý Của Bạn</h1>
+                 <div class="relative flex w-full max-w-2xl mx-auto bg-dark-card rounded-md shadow-lg p-2">
+                    <input type="text" id="input-location-recommend" placeholder="Nhập địa chỉ của bạn..." data-key="placeholder.location"
+                           class="flex-1 py-3 px-5 bg-dark-bg border border-gray-600 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:border-transparent text-dark-text-primary placeholder-gray-500">
+                    <input type="text" id="input-search-recommend" placeholder="Món bạn muốn ăn..." data-key="placeholder.search"
+                           class="flex-1 py-3 px-5 bg-dark-bg border-t border-b border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:border-transparent text-dark-text-primary placeholder-gray-500">
+                    <button id="search-button-recommend" class="bg-primary-yellow text-black px-6 rounded-r-md hover:bg-primary-yellow-darker transition-colors font-semibold">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section>
+                 <h2 class="text-2xl font-semibold text-dark-text-primary mb-8" data-key="recommend.featuredTitle">Quán Ngon Đề Xuất</h2>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <a href="../restaurant/restaurant.html" class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/phobatdan.jpg" alt="Phở Bát Đàn" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured1.name">Phở Gia Truyền Bát Đàn</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured1.desc">Hương vị phở Hà Nội xưa</p>
+                         </div>
+                        </a>
+
+                    <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/bchl.jpg" alt="Bún Chả Hương Liên" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured2.name">Bún Chả Hương Liên</h3>
+                              <p class="text-xs text-dark-text-secondary" data-key="recommend.featured2.desc">Nổi tiếng (Obama đã ghé)</p>
+                         </div>
+                    </div>
+
+                    <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/pizza4ps.jpg" alt="Pizza 4P's" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured3.name">Pizza 4P's</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured3.desc">Pizza đế mỏng, phô mai tự làm</p>
+                         </div>
+                    </div>
+                     <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/gogi.jpg" alt="Gogi House" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured4.name">Gogi House</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured4.desc">Thịt nướng Hàn Quốc</p>
+                         </div>
+                    </div>
+
+                     <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/baghien.jpg" alt="Cơm Tấm Ba Ghiền" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured5.name">Cơm Tấm Ba Ghiền</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured5.desc">Sườn cốt lết siêu to</p>
+                         </div>
+                    </div>
+                     <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/sushi.jpg" alt="Sushi Hokkaido Sachi" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured6.name">Sushi Hokkaido Sachi</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured6.desc">Sushi & Sashimi tươi ngon</p>
+                         </div>
+                    </div>
+                     <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/lauphan.jpg" alt="Lẩu Phan" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured7.name">Lẩu Phan</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured7.desc">Buffet lẩu giá sinh viên</p>
+                         </div>
+                    </div>
+                     <div class="bg-dark-card rounded-lg shadow-lg overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                         <img src="assets/thecoffeehouse.jpg" alt="The Coffee House" class="w-full h-48 object-cover">
+                         <div class="p-4">
+                             <h3 class="font-bold text-lg text-dark-text-primary mb-1 truncate" data-key="recommend.featured8.name">The Coffee House</h3>
+                             <p class="text-xs text-dark-text-secondary" data-key="recommend.featured8.desc">Không gian làm việc, cà phê</p>
+                         </div>
+                    </div>
+
+                 </div>
+            </section>
+
+        </div>
+    </main>
+
+     <footer class="bg-black text-dark-text-secondary py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Cẩm nang của những tín đồ ẩm thực
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="../about/about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="../terms/terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="../privacy/privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="../FAQ/faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <div id="recommendation-modal" class="fixed inset-0 bg-black/75 flex items-center justify-center p-4 z-50 hidden opacity-0">
+    <div class="bg-dark-card rounded-lg shadow-xl w-full max-w-3xl p-6 relative max-h-[90vh] overflow-y-auto">
+         <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+             &times;
+         </button>
+         <h2 class="text-2xl font-bold text-dark-text-primary mb-6 text-center" data-key="modal.title">Gợi Ý Dành Cho Bạn</h2>
+
+         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+             <a href="../restaurant/restaurant.html" class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto1.jpg" alt="Modal Resto 1" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto1.name">Quán A Gần Đây</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto1.desc">Món Việt truyền thống</p>
+                  </div>
+                </a>
+             <div class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto2.jpg" alt="Modal Resto 2" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto2.name">Cafe B Yên Tĩnh</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto2.desc">Đồ uống & bánh ngọt</p>
+                  </div>
+             </div>
+              <div class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto3.jpg" alt="Modal Resto 3" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto3.name">Lẩu Cay C</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto3.desc">Lẩu Tứ Xuyên</p>
+                  </div>
+             </div>
+             <div class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto4.jpg" alt="Modal Resto 4" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto4.name">Cơm Văn Phòng D</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto4.desc">Nhanh gọn, đủ chất</p>
+                  </div>
+             </div>
+              <div class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto5.jpg" alt="Modal Resto 5" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto5.name">Trà Sữa E</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto5.desc">Nhiều topping</p>
+                  </div>
+             </div>
+              <div class="bg-dark-bg rounded-lg shadow overflow-hidden flex flex-col transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
+                  <img src="assets/modal-resto6.jpg" alt="Modal Resto 6" class="w-full h-32 object-cover">
+                  <div class="p-3 flex flex-col flex-grow">
+                      <h4 class="font-semibold text-dark-text-primary text-sm truncate" data-key="modal.resto6.name">Trà Sữa E</h4>
+                      <p class="text-xs text-dark-text-secondary flex-grow" data-key="modal.resto6.desc">Nhiều topping</p>
+                  </div>
+             </div>
+         </div>
+
+         <div class="text-center">
+             <a href="search_results.html" class="inline-block bg-primary-yellow text-black font-bold py-2 px-6 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="modal.viewMoreBtn">
+                 Xem Thêm Kết Quả
+             </a>
+         </div>
+    </div>
+</div>
+
+
+    <script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'recommend.pageTitle': 'Nhà Hàng Đề Xuất - FoodiePro',
+                'recommend.searchTitle': 'Tìm Kiếm Gợi Ý Của Bạn',
+                'recommend.featuredTitle': 'Quán Ngon Đề Xuất',
+                'placeholder.location': 'Nhập địa chỉ của bạn...',
+                'placeholder.search': 'Món bạn muốn ăn...',
+                'recommend.searchButton': 'Tìm Kiếm',
+                'recommend.featured1.name': 'Phở Gia Truyền Bát Đàn',
+                'recommend.featured1.desc': 'Hương vị phở Hà Nội xưa',
+                'recommend.featured2.name': 'Bún Chả Hương Liên',
+                'recommend.featured2.desc': 'Nổi tiếng (Obama đã ghé)',
+                'recommend.featured3.name': 'Pizza 4P\'s',
+                'recommend.featured3.desc': 'Pizza đế mỏng, phô mai tự làm',
+                'recommend.featured4.name': 'Gogi House',
+                'recommend.featured4.desc': 'Thịt nướng Hàn Quốc',
+                'recommend.featured5.name': 'Cơm Tấm Ba Ghiền',
+                'recommend.featured5.desc': 'Sườn cốt lết siêu to',
+                'recommend.featured6.name': 'Sushi Hokkaido Sachi',
+                'recommend.featured6.desc': 'Sushi & Sashimi tươi ngon',
+                'recommend.featured7.name': 'Lẩu Phan',
+                'recommend.featured7.desc': 'Buffet lẩu giá sinh viên',
+                'recommend.featured8.name': 'The Coffee House',
+                'recommend.featured8.desc': 'Không gian làm việc, cà phê',
+                'modal.title': 'Gợi Ý Dành Cho Bạn',
+                'modal.resto1.name': 'Quán A Gần Đây',
+                'modal.resto1.desc': 'Món Việt truyền thống',
+                'modal.resto2.name': 'Cafe B Yên Tĩnh',
+                'modal.resto2.desc': 'Đồ uống & bánh ngọt',
+                'modal.resto3.name': 'Lẩu Cay C',
+                'modal.resto3.desc': 'Lẩu Tứ Xuyên',
+                'modal.resto4.name': 'Cơm Văn Phòng D',
+                'modal.resto4.desc': 'Nhanh gọn, đủ chất',
+                'modal.resto5.name': 'Trà Sữa E',
+                'modal.resto5.desc': 'Nhiều topping',
+                'modal.resto6.name': 'Trà Sữa E',
+                'modal.resto6.desc': 'Nhiều topping',
+                'modal.viewMoreBtn': 'Xem Thêm Kết Quả',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'recommend.pageTitle': 'Recommendations - FoodiePro',
+                'recommend.searchTitle': 'Find Your Recommendations',
+                'recommend.featuredTitle': 'Featured Restaurants',
+                'placeholder.location': 'Enter your location...',
+                'placeholder.search': 'What do you want to eat...',
+                'recommend.searchButton': 'Search',
+                'recommend.featured1.name': 'Bat Dan Traditional Pho',
+                'recommend.featured1.desc': 'Old Hanoi pho flavor',
+                'recommend.featured2.name': 'Bun Cha Huong Lien',
+                'recommend.featured2.desc': 'Famous (Obama visited)',
+                'recommend.featured3.name': 'Pizza 4P\'s',
+                'recommend.featured3.desc': 'Thin crust pizza, homemade cheese',
+                'recommend.featured4.name': 'Gogi House',
+                'recommend.featured4.desc': 'Korean BBQ',
+                'recommend.featured5.name': 'Com Tam Ba Ghien',
+                'recommend.featured5.desc': 'Extra large pork chop',
+                'recommend.featured6.name': 'Sushi Hokkaido Sachi',
+                'recommend.featured6.desc': 'Fresh Sushi & Sashimi',
+                'recommend.featured7.name': 'Lau Phan',
+                'recommend.featured7.desc': 'Student-priced hotpot buffet',
+                'recommend.featured8.name': 'The Coffee House',
+                'recommend.featured8.desc': 'Workspace, coffee',
+                'modal.title': 'Suggestions For You',
+                'modal.resto1.name': 'Nearby Restaurant A',
+                'modal.resto1.desc': 'Traditional Vietnamese',
+                'modal.resto2.name': 'Quiet Cafe B',
+                'modal.resto2.desc': 'Drinks & Pastries',
+                'modal.resto3.name': 'Spicy Hotpot C',
+                'modal.resto3.desc': 'Sichuan Hotpot',
+                'modal.resto4.name': 'Office Lunch D',
+                'modal.resto4.desc': 'Quick, nutritious',
+                'modal.resto5.name': 'Milk Tea E',
+                'modal.resto5.desc': 'Lots of toppings',
+                'modal.resto6.name': 'Trà Sữa E',
+                'modal.resto6.desc': 'Nhiều topping',
+                'modal.viewMoreBtn': 'View More Results',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-recommend');
+        const btnEn = document.getElementById('btn-en-recommend');
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        const inputLocationRecommend = document.getElementById('input-location-recommend');
+        const inputSearchRecommend = document.getElementById('input-search-recommend');
+
+        const searchButton = document.getElementById('search-button-recommend');
+        const modal = document.getElementById('recommendation-modal');
+        const closeModalButton = document.getElementById('modal-close-button');
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button-recommend');
+        const mobileMenu = document.getElementById('mobile-menu-recommend');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-recommend');
+        const overlay = document.getElementById('overlay-recommend');
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                     if ((element.tagName === 'INPUT') && element.placeholder && key.includes('placeholder')) {
+                         element.placeholder = translations[lang][key];
+                     }
+                      else if (element.tagName !== 'INPUT') {
+                         element.textContent = translations[lang][key];
+                     }
+                      // Translate mobile menu items too
+                      if (mobileMenu && mobileMenu.contains(element)) {
+                          const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                          if (mobileElement && mobileElement.tagName !== 'INPUT') {
+                              mobileElement.textContent = translations[lang][key];
+                          }
+                      }
+                }
+            });
+
+            if (inputLocationRecommend) inputLocationRecommend.placeholder = translations[lang]['placeholder.location'];
+            if (inputSearchRecommend) inputSearchRecommend.placeholder = translations[lang]['placeholder.search'];
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['recommend.pageTitle'];
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+        function openModal() {
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.offsetWidth;
+                modal.classList.remove('opacity-0');
+            }
+        }
+
+        function closeModal() {
+             if (modal) {
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+         function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        if (searchButton) {
+            searchButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        if (closeModalButton) {
+            closeModalButton.addEventListener('click', closeModal);
+        }
+
+         if (modal) {
+             modal.addEventListener('click', (e) => {
+                 if (e.target === modal) {
+                     closeModal();
+                 }
+             });
+         }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>

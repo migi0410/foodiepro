@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="privacy.pageTitle">Chính sách Bảo mật - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#D1D5DB',
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                 <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+                 </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-dark-text-primary">
+                     <a href="../index.html" class="hover:text-primary-yellow transition-colors" data-key="nav.home">Trang chủ</a>
+                     <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors" data-key="nav.recommend">Nhà hàng</a>
+                     <a href="../about/about.html" class="hover:text-primary-yellow transition-colors" data-key="nav.about">Về chúng tôi</a>
+                     <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors" data-key="nav.faq">FAQ</a>
+                     <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors" data-key="nav.contact">Liên hệ</a>
+                 </nav>
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-privacy" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-privacy" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-dark-text-primary font-medium text-sm hover:text-primary-yellow transition-colors" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-primary-yellow text-black font-bold text-sm px-5 py-2 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-privacy" class="text-dark-text-primary hover:text-primary-yellow p-1 rounded hover:bg-dark-card md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+         <div id="mobile-menu-privacy"
+              class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-card shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+              <button id="mobile-menu-close-button-privacy" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                   &times;
+              </button>
+             <nav class="flex flex-col space-y-4 text-base font-medium text-dark-text-primary mt-10">
+                 <a href="../about/" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                 <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.recommend">Nhà hàng</a>
+                 <a href="../about/about.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.about">Về chúng tôi</a>
+                 <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.faq">FAQ</a>
+                 <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                 <hr class="border-gray-600 my-4">
+                 <a href="../sign_in/sign_in.html" class="hover:text-primary-yellow transition-colors py-2 text-center" data-key="nav.signin">
+                     Đăng Nhập
+                  </a>
+                  <a href="../register/register.html" class="bg-primary-yellow text-black font-bold py-2 rounded-md hover:bg-primary-yellow-darker transition-colors w-full text-center" data-key="nav.signup">
+                     Đăng Ký
+                  </a>
+             </nav>
+         </div>
+    </header>
+     <div id="overlay-privacy" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-dark-text-primary mb-8" data-key="privacy.title">Chính sách Bảo mật</h1>
+            <p class="text-xs text-dark-text-secondary mb-10" data-key="privacy.lastUpdated">Cập nhật lần cuối: 27/10/2025</p>
+
+            <div class="space-y-8 prose prose-invert max-w-none prose-h2:font-serif prose-h2:text-2xl prose-h2:text-dark-text-primary prose-h3:text-xl prose-h3:text-dark-text-primary prose-p:text-dark-text-secondary prose-a:text-primary-yellow hover:prose-a:text-primary-yellow-darker prose-strong:text-dark-text-primary prose-ul:list-disc prose-li:text-dark-text-secondary">
+                
+                <div>
+                    <h2 data-key="privacy.section1.title">1. Thông tin chúng tôi thu thập</h2>
+                    <p data-key="privacy.section1.p1">
+                        Chúng tôi thu thập thông tin bạn cung cấp trực tiếp cho chúng tôi khi bạn tạo tài khoản, đăng đánh giá, liên hệ hỗ trợ khách hàng hoặc tương tác với Dịch vụ. Thông tin này có thể bao gồm:
+                    </p>
+                    <ul>
+                        <li data-key="privacy.section1.item1">Thông tin tài khoản: Tên, email, số điện thoại, mật khẩu (đã mã hóa).</li>
+                        <li data-key="privacy.section1.item2">Thông tin hồ sơ: Ảnh đại diện, sở thích ẩm thực (nếu bạn cung cấp).</li>
+                        <li data-key="privacy.section1.item3">Nội dung người dùng: Đánh giá, bình luận, hình ảnh bạn đăng tải.</li>
+                        <li data-key="privacy.section1.item4">Thông tin liên lạc: Nội dung trao đổi khi bạn liên hệ hỗ trợ.</li>
+                    </ul>
+                    <p data-key="privacy.section1.p2">
+                        Chúng tôi cũng có thể thu thập thông tin tự động khi bạn sử dụng Dịch vụ, chẳng hạn như địa chỉ IP, loại thiết bị, hệ điều hành, thông tin vị trí (nếu bạn cho phép), và dữ liệu sử dụng (các trang bạn xem, tính năng bạn sử dụng).
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section2.title">2. Cách chúng tôi sử dụng thông tin</h2>
+                    <p data-key="privacy.section2.p1">
+                        Chúng tôi sử dụng thông tin thu thập được để:
+                    </p>
+                    <ul>
+                         <li data-key="privacy.section2.item1">Cung cấp, duy trì và cải thiện Dịch vụ.</li>
+                         <li data-key="privacy.section2.item2">Cá nhân hóa trải nghiệm của bạn, bao gồm việc hiển thị các gợi ý nhà hàng phù hợp.</li>
+                         <li data-key="privacy.section2.item3">Cho phép bạn tương tác với các người dùng khác (ví dụ: qua đánh giá, bình luận).</li>
+                         <li data-key="privacy.section2.item4">Liên lạc với bạn về tài khoản, cập nhật Dịch vụ hoặc các thông tin tiếp thị (nếu bạn chọn tham gia).</li>
+                         <li data-key="privacy.section2.item5">Phân tích xu hướng sử dụng để cải thiện Dịch vụ.</li>
+                         <li data-key="privacy.section2.item6">Phát hiện và ngăn chặn gian lận hoặc lạm dụng.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section3.title">3. Chia sẻ thông tin</h2>
+                    <p data-key="privacy.section3.p1">
+                        Chúng tôi có thể chia sẻ thông tin của bạn trong các trường hợp sau:
+                    </p>
+                     <ul>
+                         <li data-key="privacy.section3.item1">Với các nhà cung cấp dịch vụ bên thứ ba giúp chúng tôi vận hành Dịch vụ (ví dụ: nhà cung cấp hosting, dịch vụ phân tích).</li>
+                         <li data-key="privacy.section3.item2">Nếu được yêu cầu bởi pháp luật hoặc để bảo vệ quyền lợi hợp pháp của FoodiePro.</li>
+                         <li data-key="privacy.section3.item3">Liên quan đến việc sáp nhập, mua lại hoặc bán tài sản công ty.</li>
+                         <li data-key="privacy.section3.item4">Với sự đồng ý của bạn.</li>
+                    </ul>
+                     <p data-key="privacy.section3.p2">
+                         Thông tin công khai như tên hiển thị, ảnh đại diện và các đánh giá bạn viết có thể được hiển thị cho những người dùng khác của Dịch vụ.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section4.title">4. Lựa chọn của bạn</h2>
+                    <p data-key="privacy.section4.p1">
+                        Bạn có thể truy cập và cập nhật thông tin tài khoản của mình thông qua cài đặt hồ sơ. Bạn cũng có thể chọn không nhận email tiếp thị bằng cách làm theo hướng dẫn hủy đăng ký trong các email đó.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section5.title">5. Bảo mật dữ liệu</h2>
+                    <p data-key="privacy.section5.p1">
+                        Chúng tôi thực hiện các biện pháp hợp lý để bảo vệ thông tin của bạn khỏi mất mát, trộm cắp, lạm dụng và truy cập trái phép. Tuy nhiên, không có phương thức truyền hoặc lưu trữ điện tử nào là an toàn 100%.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section6.title">6. Thay đổi Chính sách</h2>
+                     <p data-key="privacy.section6.p1">
+                        Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng Chính sách mới trên trang này và cập nhật ngày "Cập nhật lần cuối".
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="privacy.section7.title">7. Liên hệ</h2>
+                    <p data-key="privacy.section7.p1">
+                        Nếu bạn có bất kỳ câu hỏi nào về Chính sách Bảo mật này, vui lòng <a href="../contact/contact.html" class="underline" data-key="nav.contact">liên hệ với chúng tôi</a>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black text-dark-text-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Cẩm nang của những tín đồ ẩm thực
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="../recommend/recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="../about/about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="../terms/terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="../FAQ/faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'privacy.pageTitle': 'Chính sách Bảo mật - FoodiePro',
+                'privacy.title': 'Chính sách Bảo mật',
+                'privacy.lastUpdated': 'Cập nhật lần cuối: 27/10/2025',
+                'privacy.section1.title': '1. Thông tin chúng tôi thu thập',
+                'privacy.section1.p1': 'Chúng tôi thu thập thông tin bạn cung cấp trực tiếp cho chúng tôi khi bạn tạo tài khoản, đăng đánh giá, liên hệ hỗ trợ khách hàng hoặc tương tác với Dịch vụ. Thông tin này có thể bao gồm:',
+                'privacy.section1.item1': 'Thông tin tài khoản: Tên, email, số điện thoại, mật khẩu (đã mã hóa).',
+                'privacy.section1.item2': 'Thông tin hồ sơ: Ảnh đại diện, sở thích ẩm thực (nếu bạn cung cấp).',
+                'privacy.section1.item3': 'Nội dung người dùng: Đánh giá, bình luận, hình ảnh bạn đăng tải.',
+                'privacy.section1.item4': 'Thông tin liên lạc: Nội dung trao đổi khi bạn liên hệ hỗ trợ.',
+                'privacy.section1.p2': 'Chúng tôi cũng có thể thu thập thông tin tự động khi bạn sử dụng Dịch vụ, chẳng hạn như địa chỉ IP, loại thiết bị, hệ điều hành, thông tin vị trí (nếu bạn cho phép), và dữ liệu sử dụng (các trang bạn xem, tính năng bạn sử dụng).',
+                'privacy.section2.title': '2. Cách chúng tôi sử dụng thông tin',
+                'privacy.section2.p1': 'Chúng tôi sử dụng thông tin thu thập được để:',
+                'privacy.section2.item1': 'Cung cấp, duy trì và cải thiện Dịch vụ.',
+                'privacy.section2.item2': 'Cá nhân hóa trải nghiệm của bạn, bao gồm việc hiển thị các gợi ý nhà hàng phù hợp.',
+                'privacy.section2.item3': 'Cho phép bạn tương tác với các người dùng khác (ví dụ: qua đánh giá, bình luận).',
+                'privacy.section2.item4': 'Liên lạc với bạn về tài khoản, cập nhật Dịch vụ hoặc các thông tin tiếp thị (nếu bạn chọn tham gia).',
+                'privacy.section2.item5': 'Phân tích xu hướng sử dụng để cải thiện Dịch vụ.',
+                'privacy.section2.item6': 'Phát hiện và ngăn chặn gian lận hoặc lạm dụng.',
+                'privacy.section3.title': '3. Chia sẻ thông tin',
+                'privacy.section3.p1': 'Chúng tôi có thể chia sẻ thông tin của bạn trong các trường hợp sau:',
+                'privacy.section3.item1': 'Với các nhà cung cấp dịch vụ bên thứ ba giúp chúng tôi vận hành Dịch vụ (ví dụ: nhà cung cấp hosting, dịch vụ phân tích).',
+                'privacy.section3.item2': 'Nếu được yêu cầu bởi pháp luật hoặc để bảo vệ quyền lợi hợp pháp của FoodiePro.',
+                'privacy.section3.item3': 'Liên quan đến việc sáp nhập, mua lại hoặc bán tài sản công ty.',
+                'privacy.section3.item4': 'Với sự đồng ý của bạn.',
+                'privacy.section3.p2': 'Thông tin công khai như tên hiển thị, ảnh đại diện và các đánh giá bạn viết có thể được hiển thị cho những người dùng khác của Dịch vụ.',
+                'privacy.section4.title': '4. Lựa chọn của bạn',
+                'privacy.section4.p1': 'Bạn có thể truy cập và cập nhật thông tin tài khoản của mình thông qua cài đặt hồ sơ. Bạn cũng có thể chọn không nhận email tiếp thị bằng cách làm theo hướng dẫn hủy đăng ký trong các email đó.',
+                'privacy.section5.title': '5. Bảo mật dữ liệu',
+                'privacy.section5.p1': 'Chúng tôi thực hiện các biện pháp hợp lý để bảo vệ thông tin của bạn khỏi mất mát, trộm cắp, lạm dụng và truy cập trái phép. Tuy nhiên, không có phương thức truyền hoặc lưu trữ điện tử nào là an toàn 100%.',
+                'privacy.section6.title': '6. Thay đổi Chính sách',
+                'privacy.section6.p1': 'Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng Chính sách mới trên trang này và cập nhật ngày "Cập nhật lần cuối".',
+                'privacy.section7.title': '7. Liên hệ',
+                'privacy.section7.p1': 'Nếu bạn có bất kỳ câu hỏi nào về Chính sách Bảo mật này, vui lòng liên hệ với chúng tôi.',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'privacy.pageTitle': 'Privacy Policy - FoodiePro',
+                'privacy.title': 'Privacy Policy',
+                'privacy.lastUpdated': 'Last updated: October 27, 2025',
+                'privacy.section1.title': '1. Information We Collect',
+                'privacy.section1.p1': 'We collect information you provide directly to us when you create an account, post reviews, contact customer support, or otherwise interact with the Service. This information may include:',
+                'privacy.section1.item1': 'Account Information: Name, email, phone number, password (hashed).',
+                'privacy.section1.item2': 'Profile Information: Profile picture, culinary preferences (if provided).',
+                'privacy.section1.item3': 'User Content: Reviews, comments, photos you upload.',
+                'privacy.section1.item4': 'Communication Information: Content of communications when you contact support.',
+                'privacy.section1.p2': 'We may also automatically collect information when you use the Service, such as IP address, device type, operating system, location information (if permitted), and usage data (pages viewed, features used).',
+                'privacy.section2.title': '2. How We Use Information',
+                'privacy.section2.p1': 'We use the information we collect to:',
+                'privacy.section2.item1': 'Provide, maintain, and improve the Service.',
+                'privacy.section2.item2': 'Personalize your experience, including displaying relevant restaurant suggestions.',
+                'privacy.section2.item3': 'Allow you to interact with other users (e.g., through reviews, comments).',
+                'privacy.section2.item4': 'Communicate with you about your account, Service updates, or marketing information (if you opt-in).',
+                'privacy.section2.item5': 'Analyze usage trends to improve the Service.',
+                'privacy.section2.item6': 'Detect and prevent fraud or abuse.',
+                'privacy.section3.title': '3. Sharing of Information',
+                'privacy.section3.p1': 'We may share your information in the following circumstances:',
+                'privacy.section3.item1': 'With third-party service providers who help us operate the Service (e.g., hosting providers, analytics services).',
+                'privacy.section3.item2': 'If required by law or to protect the legal rights of FoodiePro.',
+                'privacy.section3.item3': 'In connection with a merger, acquisition, or sale of company assets.',
+                'privacy.section3.item4': 'With your consent.',
+                'privacy.section3.p2': 'Publicly available information like your display name, profile picture, and reviews may be visible to other users of the Service.',
+                'privacy.section4.title': '4. Your Choices',
+                'privacy.section4.p1': 'You can access and update your account information through your profile settings. You can also opt-out of receiving marketing emails by following the unsubscribe instructions in those emails.',
+                'privacy.section5.title': '5. Data Security',
+                'privacy.section5.p1': 'We take reasonable measures to help protect information about you from loss, theft, misuse, and unauthorized access. However, no electronic transmission or storage method is 100% secure.',
+                'privacy.section6.title': '6. Policy Changes',
+                'privacy.section6.p1': 'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Policy on this page and updating the "Last updated" date.',
+                'privacy.section7.title': '7. Contact Us',
+                'privacy.section7.p1': 'If you have any questions about this Privacy Policy, please contact us.',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-privacy'); // ID mới
+        const btnEn = document.getElementById('btn-en-privacy'); // ID mới
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        const mobileMenuButton = document.getElementById('mobile-menu-button-privacy'); // ID mới
+        const mobileMenu = document.getElementById('mobile-menu-privacy'); // ID mới
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-privacy'); // ID mới
+        const overlay = document.getElementById('overlay-privacy'); // ID mới
+
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                     if (mobileMenu && mobileMenu.contains(element)) {
+                         const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                         if (mobileElement && mobileElement.tagName !== 'INPUT' && mobileElement.tagName !== 'TEXTAREA') {
+                             mobileElement.textContent = translations[lang][key];
+                         }
+                     }
+                     if (!mobileMenu || !mobileMenu.contains(element) || element.placeholder) {
+                         if (element.placeholder && key.includes('Placeholder')) {
+                             element.placeholder = translations[lang][key];
+                         } else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                             element.textContent = translations[lang][key];
+                         }
+                     }
+                }
+            });
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['privacy.pageTitle']; // Đổi key title
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+         function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>

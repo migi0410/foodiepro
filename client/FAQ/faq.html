@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="faq.pageTitle">FAQ - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#9CA3AF',
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                 <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+                 </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-dark-text-primary">
+                     <a href="../index.html" class="hover:text-primary-yellow transition-colors" data-key="nav.home">Trang chủ</a>
+                     <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors" data-key="nav.recommend">Nhà hàng</a>
+                     <a href="../about/about.html" class="hover:text-primary-yellow transition-colors" data-key="nav.about">Về chúng tôi</a>
+                     <a href="faq.html" class="text-primary-yellow transition-colors font-semibold" data-key="nav.faq">FAQ</a>
+                     <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors" data-key="nav.contact">Liên hệ</a>
+                 </nav>
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-faq" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-faq" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-dark-text-primary font-medium text-sm hover:text-primary-yellow transition-colors" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-primary-yellow text-black font-bold text-sm px-5 py-2 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-faq" class="text-dark-text-primary hover:text-primary-yellow p-1 rounded hover:bg-dark-card md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+         <div id="mobile-menu-faq"
+              class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-card shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+              <button id="mobile-menu-close-button-faq" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                   &times;
+              </button>
+             <nav class="flex flex-col space-y-4 text-base font-medium text-dark-text-primary mt-10">
+                 <a href="../index.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                 <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.recommend">Nhà hàng</a>
+                 <a href="../about/about.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.about">Về chúng tôi</a>
+                 <a href="faq.html" class="text-primary-yellow transition-colors py-1 font-semibold" data-key="nav.faq">FAQ</a>
+                 <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                 <hr class="border-gray-600 my-4">
+                 <a href="../sign_in/sign_in.html" class="hover:text-primary-yellow transition-colors py-2 text-center" data-key="nav.signin">
+                     Đăng Nhập
+                  </a>
+                  <a href="../register/register.html" class="bg-primary-yellow text-black font-bold py-2 rounded-md hover:bg-primary-yellow-darker transition-colors w-full text-center" data-key="nav.signup">
+                     Đăng Ký
+                  </a>
+             </nav>
+         </div>
+    </header>
+     <div id="overlay-faq" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+
+    <main>
+        <section class="relative h-[50vh] min-h-[300px] flex items-center justify-center text-center text-dark-text-primary overflow-hidden pt-16 bg-dark-bg">
+            <img src="assets/bg.png" alt="Question marks or abstract background" class="absolute inset-0 w-full h-full object-cover z-0 opacity-10">
+            <div class="relative z-20 px-6">
+                <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-key="faq.heroTitle">Câu Hỏi Thường Gặp</h1>
+                <p class="text-lg max-w-2xl mx-auto text-dark-text-secondary" data-key="faq.heroSubtitle">
+                    Tìm câu trả lời cho những thắc mắc phổ biến về cách sử dụng FoodiePro.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+
+                <div>
+                    <h2 class="font-serif text-3xl font-bold text-dark-text-primary mb-10" data-key="faq.sectionTitle">Các Câu Hỏi Phổ Biến</h2>
+                    <div class="space-y-8">
+                        <div class="p-6 bg-dark-bg rounded-lg shadow">
+                            <h3 class="font-semibold text-lg text-dark-text-primary mb-3" data-key="faq.q1.question">FoodiePro là gì và hoạt động như thế nào?</h3>
+                            <p class="text-sm leading-relaxed" data-key="faq.q1.answer">
+                                FoodiePro là nền tảng giúp bạn khám phá nhà hàng, quán ăn dựa trên vị trí, loại ẩm thực, đánh giá từ cộng đồng và các gợi ý cá nhân hóa. Bạn chỉ cần nhập thông tin tìm kiếm, xem kết quả, đọc đánh giá và đưa ra lựa chọn phù hợp nhất.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-dark-bg rounded-lg shadow">
+                            <h3 class="font-semibold text-lg text-dark-text-primary mb-3" data-key="faq.q2.question">Làm thế nào để tôi có thể đánh giá một nhà hàng?</h3>
+                            <p class="text-sm leading-relaxed" data-key="faq.q2.answer">
+                                Sau khi trải nghiệm tại nhà hàng, bạn có thể tìm nhà hàng đó trên FoodiePro và nhấp vào nút "Viết đánh giá". Bạn cần đăng nhập tài khoản để thực hiện việc này. Hãy chia sẻ cảm nhận chân thực về món ăn, không gian, dịch vụ và giá cả nhé!
+                            </p>
+                        </div>
+                         <div class="p-6 bg-dark-bg rounded-lg shadow">
+                            <h3 class="font-semibold text-lg text-dark-text-primary mb-3" data-key="faq.q3.question">Thông tin nhà hàng trên FoodiePro có đáng tin cậy không?</h3>
+                            <p class="text-sm leading-relaxed" data-key="faq.q3.answer">
+                                Chúng tôi nỗ lực cập nhật thông tin chính xác nhất có thể từ các đối tác nhà hàng và cộng đồng người dùng. Tuy nhiên, thông tin về giờ mở cửa, giá cả có thể thay đổi. Đánh giá từ người dùng là ý kiến cá nhân, bạn nên tham khảo nhiều nguồn trước khi quyết định.
+                            </p>
+                        </div>
+                         <div class="p-6 bg-dark-bg rounded-lg shadow">
+                            <h3 class="font-semibold text-lg text-dark-text-primary mb-3" data-key="faq.q4.question">Làm sao để đăng ký nhà hàng của tôi lên FoodiePro?</h3>
+                            <p class="text-sm leading-relaxed" data-key="faq.q4.answer">
+                                Tuyệt vời! Bạn có thể truy cập trang "Dành cho Đối tác" (liên kết thường ở cuối trang) hoặc liên hệ trực tiếp với chúng tôi qua email support@foodiepro.xyz để được hướng dẫn chi tiết về quy trình đăng ký và các lợi ích khi hợp tác.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sticky top-24">
+                    <h2 class="font-serif text-3xl font-bold text-dark-text-primary mb-10" data-key="faq.askFormTitle">Bạn Có Câu Hỏi Khác?</h2>
+                    <form action="#" method="POST" class="space-y-6 p-6 bg-dark-bg rounded-lg shadow">
+                        <div>
+                            <label for="faq-email" class="block text-sm font-medium text-dark-text-secondary mb-1 sr-only" data-key="faq.emailLabel">Email của bạn</label>
+                            <input type="email" id="faq-email" name="email" required
+                                   placeholder="Email của bạn" data-key="faq.emailPlaceholder"
+                                   class="block w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-yellow focus:border-primary-yellow text-dark-text-primary">
+                        </div>
+                        <div>
+                            <label for="faq-question" class="block text-sm font-medium text-dark-text-secondary mb-1 sr-only" data-key="faq.questionLabel">Câu hỏi của bạn</label>
+                            <textarea id="faq-question" name="question" rows="5" required
+                                      placeholder="Nhập câu hỏi của bạn ở đây..." data-key="faq.questionPlaceholder"
+                                      class="block w-full px-4 py-3 bg-dark-card border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-yellow focus:border-primary-yellow text-dark-text-primary"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit"
+                                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-bold text-black bg-primary-yellow hover:bg-primary-yellow-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-yellow transition-colors"
+                                    data-key="faq.submitBtn">
+                                Gửi Câu Hỏi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-dark-text-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Cẩm nang của những tín đồ ẩm thực
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="../recommend/recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="../about/about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="../terms/terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="../privacy/privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'faq.pageTitle': 'FAQ - FoodiePro',
+                'faq.heroTitle': 'Câu Hỏi Thường Gặp',
+                'faq.heroSubtitle': 'Tìm câu trả lời cho những thắc mắc phổ biến về cách sử dụng FoodiePro.',
+                'faq.sectionTitle': 'Các Câu Hỏi Phổ Biến',
+                'faq.q1.question': 'FoodiePro là gì và hoạt động như thế nào?',
+                'faq.q1.answer': 'FoodiePro là nền tảng giúp bạn khám phá nhà hàng, quán ăn dựa trên vị trí, loại ẩm thực, đánh giá từ cộng đồng và các gợi ý cá nhân hóa. Bạn chỉ cần nhập thông tin tìm kiếm, xem kết quả, đọc đánh giá và đưa ra lựa chọn phù hợp nhất.',
+                'faq.q2.question': 'Làm thế nào để tôi có thể đánh giá một nhà hàng?',
+                'faq.q2.answer': 'Sau khi trải nghiệm tại nhà hàng, bạn có thể tìm nhà hàng đó trên FoodiePro và nhấp vào nút "Viết đánh giá". Bạn cần đăng nhập tài khoản để thực hiện việc này. Hãy chia sẻ cảm nhận chân thực về món ăn, không gian, dịch vụ và giá cả nhé!',
+                'faq.q3.question': 'Thông tin nhà hàng trên FoodiePro có đáng tin cậy không?',
+                'faq.q3.answer': 'Chúng tôi nỗ lực cập nhật thông tin chính xác nhất có thể từ các đối tác nhà hàng và cộng đồng người dùng. Tuy nhiên, thông tin về giờ mở cửa, giá cả có thể thay đổi. Đánh giá từ người dùng là ý kiến cá nhân, bạn nên tham khảo nhiều nguồn trước khi quyết định.',
+                'faq.q4.question': 'Làm sao để đăng ký nhà hàng của tôi lên FoodiePro?',
+                'faq.q4.answer': 'Tuyệt vời! Bạn có thể truy cập trang "Dành cho Đối tác" (liên kết thường ở cuối trang) hoặc liên hệ trực tiếp với chúng tôi qua email support@foodiepro.xyz để được hướng dẫn chi tiết về quy trình đăng ký và các lợi ích khi hợp tác.',
+                'faq.askFormTitle': 'Bạn Có Câu Hỏi Khác?',
+                'faq.emailLabel': 'Email của bạn',
+                'faq.emailPlaceholder': 'Email của bạn',
+                'faq.questionLabel': 'Câu hỏi của bạn',
+                'faq.questionPlaceholder': 'Nhập câu hỏi của bạn ở đây...',
+                'faq.submitBtn': 'Gửi Câu Hỏi',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'faq.pageTitle': 'FAQ - FoodiePro',
+                'faq.heroTitle': 'Frequently Asked Questions',
+                'faq.heroSubtitle': 'Find answers to common questions about using FoodiePro.',
+                'faq.sectionTitle': 'Common Questions',
+                'faq.q1.question': 'What is FoodiePro and how does it work?',
+                'faq.q1.answer': 'FoodiePro is a platform that helps you discover restaurants and eateries based on location, cuisine type, community reviews, and personalized suggestions. Simply enter your search criteria, view the results, read reviews, and make the best choice.',
+                'faq.q2.question': 'How can I review a restaurant?',
+                'faq.q2.answer': 'After dining at a restaurant, you can find it on FoodiePro and click the "Write a review" button. You need to be logged into your account to do this. Please share your honest feedback about the food, ambiance, service, and price!',
+                'faq.q3.question': 'Is the restaurant information on FoodiePro reliable?',
+                'faq.q3.answer': 'We strive to keep information as accurate as possible from our restaurant partners and user community. However, details like opening hours and prices may change. User reviews are personal opinions, so we recommend consulting multiple sources before making a decision.',
+                'faq.q4.question': 'How can I list my restaurant on FoodiePro?',
+                'faq.q4.answer': 'Great! You can visit our "For Partners" page (link usually in the footer) or contact us directly at support@foodiepro.xyz for detailed instructions on the registration process and partnership benefits.',
+                'faq.askFormTitle': 'Have More Questions?',
+                'faq.emailLabel': 'Your Email',
+                'faq.emailPlaceholder': 'Your Email',
+                'faq.questionLabel': 'Your Question',
+                'faq.questionPlaceholder': 'Enter your question here...',
+                'faq.submitBtn': 'Send Question',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-faq');
+        const btnEn = document.getElementById('btn-en-faq');
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        const faqEmailInput = document.getElementById('faq-email');
+        const faqQuestionTextarea = document.getElementById('faq-question');
+        // Get mobile menu elements for this page
+        const mobileMenuButton = document.getElementById('mobile-menu-button-faq');
+        const mobileMenu = document.getElementById('mobile-menu-faq');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-faq');
+        const overlay = document.getElementById('overlay-faq');
+
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                    if ((element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') && element.placeholder) {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        // Also translate mobile menu items
+                         if (mobileMenu && mobileMenu.contains(element)) {
+                             const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                             if (mobileElement && mobileElement.tagName !== 'INPUT' && mobileElement.tagName !== 'TEXTAREA') {
+                                 mobileElement.textContent = translations[lang][key];
+                             }
+                         }
+                         // Translate non-input elements outside or inside mobile menu
+                         if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                            element.textContent = translations[lang][key];
+                         }
+                    }
+                }
+            });
+
+            if (faqEmailInput) faqEmailInput.placeholder = translations[lang]['faq.emailPlaceholder'];
+            if (faqQuestionTextarea) faqQuestionTextarea.placeholder = translations[lang]['faq.questionPlaceholder'];
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['faq.pageTitle'];
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+         function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>

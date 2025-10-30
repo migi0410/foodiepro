@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="detail.pageTitle">Chi Tiết Nhà Hàng - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Merriweather', 'serif'],
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#9CA3AF',
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    body {
+        animation: fadeIn 1s ease-in-out forwards;
+        opacity: 0;
+    }
+    /* Kiểu cho tab active */
+    .tab-button.active {
+        border-color: #FBBF24;
+        color: #FBBF24;
+    }
+    /* Ẩn tab content mặc định */
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-4 sm:px-6 py-1 flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[3.5rem] sm:h-[4rem] lg:h-[5rem]">
+                </a>
+            </div>
+            <nav class="hidden md:flex flex-grow justify-center items-center space-x-6 lg:space-x-8 text-sm font-medium text-white">
+                <a href="../index.html" class="hover:text-yellow-400 transition-colors" data-key="nav.home">Trang chủ</a>
+                <a href="../recommend/recommend.html" class="text-yellow-400 font-semibold transition-colors" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                <a href="../about/about.html" class="hover:text-yellow-400 transition-colors" data-key="nav.about">Về chúng tôi</a>
+                <a href="../FAQ/faq.html" class="hover:text-yellow-400 transition-colors" data-key="nav.faq">FAQ</a>
+                <a href="../contact/contact.html" class="hover:text-yellow-400 transition-colors" data-key="nav.contact">Liên hệ</a>
+            </nav>
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-detail" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-detail" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3 lg:space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-white font-medium text-sm hover:text-yellow-400 transition-colors whitespace-nowrap" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-yellow-400 text-black font-bold text-sm px-4 lg:px-6 py-2 rounded-md hover:bg-yellow-500 transition-colors whitespace-nowrap" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-detail" class="md:hidden text-white hover:text-yellow-400 p-1">
+                     <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+        <div id="mobile-menu-detail"
+             class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-bg shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+             <button id="mobile-menu-close-button-detail" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                  &times;
+             </button>
+            <nav class="flex flex-col space-y-4 text-base font-medium text-white mt-10">
+                <a href="../index.html" class="hover:text-yellow-400 transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                <a href="../recommend/recommend.html" class="text-yellow-400 font-semibold transition-colors py-1" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                <a href="../about/about.html" class="hover:text-yellow-400 transition-colors py-1" data-key="nav.about">Về chúng tôi</a>
+                <a href="../FAQ/faq.html" class="hover:text-yellow-400 transition-colors py-1" data-key="nav.faq">FAQ</a>
+                <a href="../contact/contact.html" class="hover:text-yellow-400 transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                <hr class="border-gray-600 my-4">
+                <a href="../sign_in/sign_in.html" class="hover:text-yellow-400 transition-colors py-2 text-center" data-key="nav.signin">
+                    Đăng Nhập
+                 </a>
+                 <a href="../register/register.html" class="bg-yellow-400 text-black font-bold py-2 rounded-md hover:bg-yellow-500 transition-colors w-full text-center" data-key="nav.signup">
+                    Đăng Ký
+                 </a>
+            </nav>
+        </div>
+    </header>
+    <div id="overlay-detail" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+    <main>
+        <section class="relative h-[60vh] min-h-[400px] flex items-end text-white overflow-hidden">
+            <img src="assets/bg.jpg" alt="Tên Nhà Hàng" class="absolute inset-0 w-full h-full object-cover z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+            <div class="container mx-auto px-6 py-10 relative z-20">
+                <h1 class="font-sans text-4xl md:text-6xl font-bold mb-2" data-key="detail.restoName">Phở Gia Truyền Bát Đàn</h1>
+                <p class="text-lg text-gray-300" data-key="detail.restoCuisine">Ẩm thực Việt Nam</p>
+            </div>
+        </section>
+
+        <section class="sticky top-[69px] bg-dark-card shadow-md z-20">
+            <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex-grow text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start space-x-2 text-primary-yellow">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                        <span class="text-dark-text-secondary text-sm ml-2" data-key="detail.reviewCount">(120 đánh giá)</span>
+                    </div>
+                    <p class="text-sm mt-2" data-key="detail.address">7 Bát Đàn, Hoàn Kiếm, Hà Nội</p>
+                    <p class="text-sm mt-1" data-key="detail.priceRange">$$ - 50.000đ - 100.000đ</p>
+                </div>
+                <div class="flex-shrink-0 flex space-x-3">
+                    <button class="bg-dark-bg p-3 rounded-full text-primary-yellow hover:bg-gray-700" title="Lưu vào yêu thích" data-key="detail.saveBtnTitle">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <button class="bg-primary-yellow text-black font-bold py-3 px-6 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="detail.bookBtn">
+                        Đặt Bàn
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 md:py-16">
+            <div class="container mx-auto px-6 grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <div class="mb-8">
+                        <div class="flex space-x-6 border-b border-gray-700 mb-6">
+                            <button class="tab-button font-semibold py-3 border-b-2 border-transparent text-dark-text-secondary hover:text-white transition-colors active" data-tab="overview" data-key="detail.tabOverview">Tổng Quan</button>
+                            <button class="tab-button font-semibold py-3 border-b-2 border-transparent text-dark-text-secondary hover:text-white transition-colors" data-tab="menu" data-key="detail.tabMenu">Thực Đơn</button>
+                            <button class="tab-button font-semibold py-3 border-b-2 border-transparent text-dark-text-secondary hover:text-white transition-colors" data-tab="reviews" data-key="detail.tabReviews">Đánh Giá</button>
+                        </div>
+                        
+                        <div class="prose prose-invert max-w-none prose-p:text-dark-text-secondary prose-headings:text-dark-text-primary">
+                            <div id="tab-overview" class="tab-content active space-y-4">
+                                <h3 class="font-sans text-2xl font-bold" data-key="detail.overviewTitle">Về Nhà Hàng</h3>
+                                <p data-key="detail.overviewText1">
+                                    Nằm trên con phố Bát Đàn, quán phở gia truyền này là một trong những địa điểm phở lâu đời và nổi tiếng nhất Hà Nội. Nơi đây thu hút thực khách bởi hương vị nước dùng thanh ngọt, đậm đà, được ninh từ xương trong nhiều giờ, cùng với thịt bò tươi ngon và bánh phở mềm mại.
+                                </p>
+                                <p data-key="detail.overviewText2">
+                                    Không gian quán mang đậm nét cổ kính, luôn tấp nập khách ra vào. Trải nghiệm xếp hàng chờ đợi để được thưởng thức bát phở nóng hổi đã trở thành một phần "văn hóa" đặc trưng của quán. Đây là địa điểm không thể bỏ qua cho bất kỳ ai muốn tìm kiếm hương vị phở Hà Nội chuẩn vị.
+                                </p>
+                            </div>
+                            <div id="tab-menu" class="tab-content space-y-4">
+                                <h3 class="font-sans text-2xl font-bold" data-key="detail.menuTitle">Thực Đơn Nổi Bật</h3>
+                                <div class="bg-dark-card p-4 rounded-md flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-semibold text-dark-text-primary" data-key="detail.menuItem1.name">Phở Tái Chín</h4>
+                                        <p class="text-sm" data-key="detail.menuItem1.desc">Thịt bò tái và chín, nước dùng truyền thống.</p>
+                                    </div>
+                                    <span class="font-semibold text-dark-text-primary" data-key="detail.menuItem1.price">70.000đ</span>
+                                </div>
+                                 <div class="bg-dark-card p-4 rounded-md flex justify-between items-center">
+                                    <div>
+                                        <h4 class="font-semibold text-dark-text-primary" data-key="detail.menuItem2.name">Phở Tái Nạm Gầu</h4>
+                                        <p class="text-sm" data-key="detail.menuItem2.desc">Tái, nạm, gầu béo ngậy.</p>
+                                    </div>
+                                    <span class="font-semibold text-dark-text-primary" data-key="detail.menuItem2.price">85.000đ</span>
+                                </div>
+                            </div>
+                            <div id="tab-reviews" class="tab-content space-y-6">
+                                <h3 class="font-sans text-2xl font-bold" data-key="detail.reviewsTitle">Đánh Giá Từ Cộng Đồng</h3>
+                                <div class="bg-dark-card p-4 rounded-md">
+                                    <div class="flex items-center mb-2">
+                                        <img src="assets/avatar1.jpg" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-dark-text-primary" data-key="detail.reviewUser1.name">Nguyễn Văn A</h4>
+                                            <div class="text-sm text-primary-yellow">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm" data-key="detail.reviewUser1.comment">"Phở rất ngon, nước dùng chuẩn vị xưa. Phải xếp hàng hơi lâu nhưng xứng đáng!"</p>
+                                </div>
+                                <div class="bg-dark-card p-4 rounded-md">
+                                    <div class="flex items-center mb-2">
+                                        <img src="assets/avatar2.jpg" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <h4 class="font-semibold text-dark-text-primary" data-key="detail.reviewUser2.name">Trần Thị B</h4>
+                                            <div class="text-sm text-primary-yellow">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm" data-key="detail.reviewUser2.comment">"Quán hơi đông và chật, nhưng chất lượng phở thì không thể chê."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-1 sticky top-24">
+                    <div class="bg-dark-card rounded-lg shadow-lg p-6">
+                        <h3 class="font-sans text-2xl font-bold text-dark-text-primary mb-4" data-key="detail.infoBoxTitle">Thông Tin & Bản Đồ</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="font-semibold" data-key="detail.infoHoursLabel">Giờ mở cửa:</span>
+                                <span data-key="detail.infoHoursValue">6:00 - 20:30</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold" data-key="detail.infoPhoneLabel">Điện thoại:</span>
+                                <a href="tel:0123456789" class="hover:text-primary-yellow" data-key="detail.infoPhoneValue">012 345 6789</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold" data-key="detail.infoParkingLabel">Giữ xe:</span>
+                                <span data-key="detail.infoParkingValue">Có (vỉa hè)</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-dark-bg h-64 rounded-lg flex items-center justify-center text-dark-text-secondary italic">
+                            (Khu vực bản đồ Google Maps)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-dark-text-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Cẩm nang của những tín đồ ẩm thực
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="../recommend/recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="../about/about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="../terms/terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="../privacy/privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="../FAQ/faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+<script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'detail.pageTitle': 'Chi Tiết Nhà Hàng - FoodiePro',
+                'detail.restoName': 'Phở Gia Truyền Bát Đàn',
+                'detail.restoCuisine': 'Ẩm thực Việt Nam',
+                'detail.reviewCount': '(120 đánh giá)',
+                'detail.address': '7 Bát Đàn, Hoàn Kiếm, Hà Nội',
+                'detail.priceRange': '$$ - 50.000đ - 100.000đ',
+                'detail.saveBtnTitle': 'Lưu vào yêu thích',
+                'detail.bookBtn': 'Đặt Bàn',
+                'detail.tabOverview': 'Tổng Quan',
+                'detail.tabMenu': 'Thực Đơn',
+                'detail.tabReviews': 'Đánh Giá',
+                'detail.overviewTitle': 'Về Nhà Hàng',
+                'detail.overviewText1': 'Nằm trên con phố Bát Đàn, quán phở gia truyền này là một trong những địa điểm phở lâu đời và nổi tiếng nhất Hà Nội. Nơi đây thu hút thực khách bởi hương vị nước dùng thanh ngọt, đậm đà, được ninh từ xương trong nhiều giờ, cùng với thịt bò tươi ngon và bánh phở mềm mại.',
+                'detail.overviewText2': 'Không gian quán mang đậm nét cổ kính, luôn tấp nập khách ra vào. Trải nghiệm xếp hàng chờ đợi để được thưởng thức bát phở nóng hổi đã trở thành một phần "văn hóa" đặc trưng của quán. Đây là địa điểm không thể bỏ qua cho bất kỳ ai muốn tìm kiếm hương vị phở Hà Nội chuẩn vị.',
+                'detail.menuTitle': 'Thực Đơn Nổi Bật',
+                'detail.menuItem1.name': 'Phở Tái Chín',
+                'detail.menuItem1.desc': 'Thịt bò tái và chín, nước dùng truyền thống.',
+                'detail.menuItem1.price': '70.000đ',
+                'detail.menuItem2.name': 'Phở Tái Nạm Gầu',
+                'detail.menuItem2.desc': 'Tái, nạm, gầu béo ngậy.',
+                'detail.menuItem2.price': '85.000đ',
+                'detail.reviewsTitle': 'Đánh Giá Từ Cộng Đồng',
+                'detail.reviewUser1.name': 'Nguyễn Văn A',
+                'detail.reviewUser1.comment': '"Phở rất ngon, nước dùng chuẩn vị xưa. Phải xếp hàng hơi lâu nhưng xứng đáng!"',
+                'detail.reviewUser2.name': 'Trần Thị B',
+                'detail.reviewUser2.comment': '"Quán hơi đông và chật, nhưng chất lượng phở thì không thể chê."',
+                'detail.infoBoxTitle': 'Thông Tin & Bản Đồ',
+                'detail.infoHoursLabel': 'Giờ mở cửa:',
+                'detail.infoHoursValue': '6:00 - 20:30',
+                'detail.infoPhoneLabel': 'Điện thoại:',
+                'detail.infoPhoneValue': '012 345 6789',
+                'detail.infoParkingLabel': 'Giữ xe:',
+                'detail.infoParkingValue': 'Có (vỉa hè)',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'detail.pageTitle': 'Restaurant Detail - FoodiePro',
+                'detail.restoName': 'Bat Dan Traditional Pho',
+                'detail.restoCuisine': 'Vietnamese Cuisine',
+                'detail.reviewCount': '(120 reviews)',
+                'detail.address': '7 Bat Dan, Hoan Kiem, Hanoi',
+                'detail.priceRange': '$$ - 50,000 VND - 100,000 VND',
+                'detail.saveBtnTitle': 'Save to favorites',
+                'detail.bookBtn': 'Book a Table',
+                'detail.tabOverview': 'Overview',
+                'detail.tabMenu': 'Menu',
+                'detail.tabReviews': 'Reviews',
+                'detail.overviewTitle': 'About the Restaurant',
+                'detail.overviewText1': 'Located on Bat Dan Street, this traditional pho restaurant is one of the oldest and most famous in Hanoi. It attracts diners with its clear, sweet, and rich broth, simmered from bones for hours, along with fresh beef and soft pho noodles.',
+                'detail.overviewText2': 'The space is antique and always bustling with customers. The experience of queuing up to enjoy a hot bowl of pho has become a characteristic "culture" of the restaurant. This is a must-visit spot for anyone seeking the authentic taste of Hanoi pho.',
+                'detail.menuTitle': 'Featured Menu',
+                'detail.menuItem1.name': 'Pho with Rare and Well-done Beef',
+                'detail.menuItem1.desc': 'Rare and well-done beef, traditional broth.',
+                'detail.menuItem1.price': '70,000 VND',
+                'detail.menuItem2.name': 'Pho with Rare Beef, Flank, and Brisket',
+                'detail.menuItem2.desc': 'Rare beef, flank, and fatty brisket.',
+                'detail.menuItem2.price': '85,000 VND',
+                'detail.reviewsTitle': 'Community Reviews',
+                'detail.reviewUser1.name': 'Nguyen Van A',
+                'detail.reviewUser1.comment': '"The pho is delicious, authentic old-style broth. Had to wait a while, but it was worth it!"',
+                'detail.reviewUser2.name': 'Tran Thi B',
+                'detail.reviewUser2.comment': '"The place is a bit crowded and cramped, but the quality of the pho is undeniable."',
+                'detail.infoBoxTitle': 'Info & Map',
+                'detail.infoHoursLabel': 'Hours:',
+                'detail.infoHoursValue': '6:00 AM - 8:30 PM',
+                'detail.infoPhoneLabel': 'Phone:',
+                'detail.infoPhoneValue': '012 345 6789',
+                'detail.infoParkingLabel': 'Parking:',
+                'detail.infoParkingValue': 'Yes (sidewalk)',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-detail');
+        const btnEn = document.getElementById('btn-en-detail');
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button-detail');
+        const mobileMenu = document.getElementById('mobile-menu-detail');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-detail');
+        const overlay = document.getElementById('overlay-detail');
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                     if (mobileMenu && mobileMenu.contains(element)) {
+                         const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                         if (mobileElement && mobileElement.tagName !== 'INPUT' && mobileElement.tagName !== 'TEXTAREA') {
+                             mobileElement.textContent = translations[lang][key];
+                         }
+                     }
+                     if (!mobileMenu || !mobileMenu.contains(element) || element.placeholder) {
+                         if (element.placeholder && key.includes('Placeholder')) {
+                             element.placeholder = translations[lang][key];
+                         } else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                             element.textContent = translations[lang][key];
+                         }
+                     }
+                }
+            });
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['detail.pageTitle'];
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+         function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+            
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    const activeTabContent = document.getElementById(tabId);
+                    if (activeTabContent) {
+                        activeTabContent.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html> 

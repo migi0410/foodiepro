@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="register.pageTitle">Đăng Ký - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Merriweather', 'serif'],
+            },
+            colors: {
+                // 👇 ĐÃ THAY ĐỔI PALETTE MÀU 👇
+                'custom-emerald': '#235347', // Màu lục bảo (Tailwind emerald-500)
+                'custom-emerald-darker': '#163832', // Màu lục bảo đậm hơn (emerald-700)
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    /* Định nghĩa animation fade-in */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Áp dụng animation cho body khi trang tải */
+    body {
+        animation: fadeIn 1s ease-in-out forwards; /* Tên animation, thời gian, kiểu, giữ lại trạng thái cuối */
+        opacity: 0; /* Bắt đầu ẩn đi */
+    }
+</style>
+</head>
+<body class="font-sans">
+
+    <header class="absolute top-0 left-0 w-full p-4 md:p-6 z-20">
+ <div class="container mx-auto flex justify-between items-center">
+  <div>
+   <a href="../index.html">
+    <img src="assets/logo_white.png" alt="FoodiePro Logo" class="h-[4rem]">
+   </a>
+  </div>
+
+  <div class="flex items-center space-x-4">
+   
+   <div class="flex items-center bg-white rounded-full p-1 border border-gray-300 shadow-sm">
+    <a href="#" id="btn-vi-register" class="text-gray-500 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+     VI
+    </a>
+    <a href="#" id="btn-en-register" class="text-gray-500 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+     EN
+    </a>
+   </div>
+   <a href="../index.html" class="text-gray-800 hover:text-emerald-mid-dark p-1 rounded hover:bg-gray-100" aria-label="Trang chủ">
+    <i class="fas fa-home text-xl"></i>
+   </a>
+  </div>
+ </div>
+</header>
+
+    <div class="min-h-screen flex pt-20 lg:pt-0">
+        
+        <div class="hidden lg:flex w-2/5 relative items-center justify-center p-8 overflow-hidden">
+            <img src="assets/bg.png" alt="Food background" class="absolute inset-0 w-full h-full object-cover z-0">
+             <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+
+            <div class="relative z-20 text-center text-white">
+                <h1 class="text-4xl font-extrabold mb-4" data-key="register.welcomeTitle">Welcome to FoodiePro</h1>
+                <p class="text-lg" data-key="register.welcomeText">For better experience with your meals!</p>
+            </div>
+            </div>
+
+        
+        <div class="w-full lg:w-3/5 flex items-center justify-center bg-white p-6 md:p-12">
+            <div class="w-full max-w-md">
+                
+            
+                
+                <h2 class="text-4xl font-extrabold text-gray-800 mb-8 text-center lg:text-left" data-key="register.signupTitle">Sign Up</h2>
+                
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <input type="text" id="email" name="email" required
+                               placeholder="Email" data-key="register.emailPlaceholder"
+                               class="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+                    </div>
+                    <div>
+                        <input type="text" id="phone" name="phone" required
+                               placeholder="Phone" data-key="register.phonePlaceholder"
+                               class="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+                    </div>
+                    <div>
+                        <input type="text" id="full_name" name="full_name" required
+                               placeholder="Full Name" data-key="register.fullNamePlaceholder"
+                               class="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" required
+                               placeholder="Password" data-key="register.passwordPlaceholder"
+                               class="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+                    </div>
+                    
+                    <div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-bold text-white bg-custom-emerald hover:bg-custom-emerald-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-emerald transition-colors"
+                                data-key="register.getStartedBtn">
+                            Let's Get Started!
+                        </button>
+                    </div>
+                </form>
+
+                <div class="flex items-center my-6">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-500 text-sm" data-key="register.orText">Or if feeling lazy?</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div class="space-y-4 md:space-y-0 md:flex md:space-x-4">
+                    <button class="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+                        <i class="fab fa-facebook mr-3"></i> <span data-key="register.facebookBtn">Facebook</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+                        <i class="fab fa-google mr-3"></i> <span data-key="register.googleBtn">Google</span>
+                    </button>
+                </div>
+
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    <span data-key="register.alreadyMemberText">Already a member?</span>
+                    <a href="../sign_in/sign_in.html" class="font-medium text-custom-emerald hover:text-custom-emerald-darker" data-key="nav.signin">
+                        Sign In
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        // Bước 1: Dữ liệu "Từ điển" (Giữ nguyên)
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro', 
+                'nav.home': 'Trang chủ', 
+                'nav.recommend': 'Nhà hàng đề xuất', 
+                'nav.about': 'Về chúng tôi', 
+                'nav.faq': 'FAQ', 
+                'nav.contact': 'Liên hệ', 
+                'nav.signin': 'Đăng Nhập', 
+                'nav.signup': 'Đăng Ký', 
+                'hero.line1.part1': 'ĂN', 
+                'hero.line1.part2': 'CHUẨN GU', 
+                'hero.line2.part1': 'ĐU', 
+                'hero.line2.part2': 'CHUẨN Ý', 
+                'hero.description': 'Nhập món ăn, nhà hàng, hoặc loại ẩm thực bạn muốn tìm trong khu vực của mình.', 
+                'placeholder.location': 'Nhập địa chỉ của bạn...', 
+                'placeholder.search': 'Món bạn muốn ăn...', 
+                'popular.title': 'Ẩm Thực Nổi Bật', 
+                'popular.item1': 'Việt Nam', 
+                'popular.item2': 'Hàn Quốc', 
+                'popular.item3': 'Nhật Bản', 
+                'register.pageTitle': 'Đăng Ký - FoodiePro',
+                'register.welcomeTitle': 'Chào mừng đến với FoodiePro',
+                'register.welcomeText': 'Để có trải nghiệm tốt hơn với bữa ăn của bạn!',
+                'register.signupTitle': 'Đăng Ký',
+                'register.emailPlaceholder': 'Email',
+                'register.phonePlaceholder': 'Số điện thoại',
+                'register.fullNamePlaceholder': 'Tên đầy đủ',
+                'register.passwordPlaceholder': 'Mật khẩu',
+                'register.getStartedBtn': 'Bắt đầu ngay!',
+                'register.orText': 'Hoặc tiếp tục với',
+                'register.facebookBtn': 'Facebook',
+                'register.googleBtn': 'Google',
+                'register.alreadyMemberText': 'Đã có tài khoản?',
+                'nav.search': 'Tìm kiếm' 
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines', 
+                'nav.home': 'Home', 
+                'nav.recommend': 'Recommendations', 
+                'nav.about': 'About Us', 
+                'nav.faq': 'FAQ', 
+                'nav.contact': 'Contact', 
+                'nav.signin': 'Sign In', 
+                'nav.signup': 'Sign Up', 
+                'hero.line1.part1': 'EAT', 
+                'hero.line1.part2': 'YOUR WAY', 
+                'hero.line2.part1': 'FIND', 
+                'hero.line2.part2': 'YOUR TASTE', 
+                'hero.description': 'Enter the dish, restaurant, or cuisine you want to find in your area.', 
+                'placeholder.location': 'Enter your location...', 
+                'placeholder.search': 'What do you want to eat...', 
+                'popular.title': 'Popular Food', 
+                'popular.item1': 'Vietnamese', 
+                'popular.item2': 'Korean', 
+                'popular.item3': 'Japanese', 
+                'register.pageTitle': 'Sign Up - FoodiePro',
+                'register.welcomeTitle': 'Welcome to FoodiePro',
+                'register.welcomeText': 'For better experience with your meals!',
+                'register.signupTitle': 'Sign Up',
+                'register.emailPlaceholder': 'Email',
+                'register.phonePlaceholder': 'Phone',
+                'register.fullNamePlaceholder': 'Full Name',
+                'register.passwordPlaceholder': 'Password',
+                'register.getStartedBtn': "Let's Get Started!",
+                'register.orText': 'Or continue with',
+                'register.facebookBtn': 'Facebook',
+                'register.googleBtn': 'Google',
+                'register.alreadyMemberText': 'Already a member?',
+                'nav.search': 'Search' 
+            }
+        };
+
+        // Bước 2: Lấy các phần tử DOM (Giữ nguyên)
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement; 
+        
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const fullNameInput = document.getElementById('full_name');
+        const passwordInput = document.getElementById('password');
+        
+        const btnViRegister = document.getElementById('btn-vi-register');
+        const btnEnRegister = document.getElementById('btn-en-register');
+
+
+        // Bước 3: Hàm để thay đổi ngôn ngữ
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            if (emailInput) emailInput.placeholder = translations[lang]['register.emailPlaceholder'];
+            if (phoneInput) phoneInput.placeholder = translations[lang]['register.phonePlaceholder'];
+            if (fullNameInput) fullNameInput.placeholder = translations[lang]['register.fullNamePlaceholder'];
+            if (passwordInput) passwordInput.placeholder = translations[lang]['register.passwordPlaceholder'];
+            if (pageTitle) pageTitle.textContent = translations[lang]['register.pageTitle'];
+            
+            htmlTag.setAttribute('lang', lang);
+            
+            // 👇 ĐÃ THAY ĐỔI MÀU NÚT GẠT ACTIVE 👇
+            if (btnViRegister && btnEnRegister) {
+                if (lang === 'vi') {
+                    btnViRegister.classList.add('bg-custom-emerald', 'text-white');
+                    btnViRegister.classList.remove('text-gray-500', 'hover:bg-gray-200');
+                    
+                    btnEnRegister.classList.add('text-gray-500', 'hover:bg-gray-200');
+                    btnEnRegister.classList.remove('bg-custom-emerald', 'text-white');
+                } else {
+                    btnEnRegister.classList.add('bg-custom-emerald', 'text-white');
+                    btnEnRegister.classList.remove('text-gray-500', 'hover:bg-gray-200');
+                    
+                    btnViRegister.classList.add('text-gray-500', 'hover:bg-gray-200');
+                    btnViRegister.classList.remove('bg-custom-emerald', 'text-white');
+                }
+            }
+
+            localStorage.setItem('language', lang);
+        }
+
+        // Bước 4: Thêm sự kiện click cho nút gạt (Giữ nguyên)
+        if (btnViRegister) {
+            btnViRegister.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+        if (btnEnRegister) {
+            btnEnRegister.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+        
+        // Bước 5: Khởi tạo khi tải trang (Giữ nguyên)
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const registerForm = document.querySelector('form');
+        if (registerForm) {
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Ngăn form tự gửi
+
+                // Lấy dữ liệu từ form
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const full_name = document.getElementById('full_name').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            full_name: full_name,
+                            email: email,
+                            phone: phone,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        // Nếu server trả về lỗi (ví dụ: email tồn tại)
+                        alert('Lỗi: ' + data.message);
+                    } else {
+                        // Đăng ký thành công
+                        alert('Đăng ký thành công! Vui lòng đăng nhập.');
+                        window.location.href = '../sign_in/sign_in.html'; // Chuyển sang trang đăng nhập
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi gọi API:', error);
+                    alert('Đã xảy ra lỗi. Vui lòng thử lại.');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

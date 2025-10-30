@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="terms.pageTitle">Điều khoản & Điều kiện - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#D1D5DB', // Slightly brighter secondary text for readability
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                 <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+                 </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-dark-text-primary">
+                     <a href="../index.html" class="hover:text-primary-yellow transition-colors" data-key="nav.home">Trang chủ</a>
+                     <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors" data-key="nav.recommend">Nhà hàng</a>
+                     <a href="../about/about.html" class="hover:text-primary-yellow transition-colors" data-key="nav.about">Về chúng tôi</a>
+                     <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors" data-key="nav.faq">FAQ</a>
+                     <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors" data-key="nav.contact">Liên hệ</a>
+                 </nav>
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-terms" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-terms" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-dark-text-primary font-medium text-sm hover:text-primary-yellow transition-colors" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-primary-yellow text-black font-bold text-sm px-5 py-2 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-terms" class="text-dark-text-primary hover:text-primary-yellow p-1 rounded hover:bg-dark-card md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+         <div id="mobile-menu-terms"
+              class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-card shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+              <button id="mobile-menu-close-button-terms" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                   &times;
+              </button>
+             <nav class="flex flex-col space-y-4 text-base font-medium text-dark-text-primary mt-10">
+                 <a href="../index.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                 <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.recommend">Nhà hàng</a>
+                 <a href="../about/about.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.about">Về chúng tôi</a>
+                 <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.faq">FAQ</a>
+                 <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                 <hr class="border-gray-600 my-4">
+                 <a href="../sign_in/sign_in.html" class="hover:text-primary-yellow transition-colors py-2 text-center" data-key="nav.signin">
+                     Đăng Nhập
+                  </a>
+                  <a href="../register/register.html" class="bg-primary-yellow text-black font-bold py-2 rounded-md hover:bg-primary-yellow-darker transition-colors w-full text-center" data-key="nav.signup">
+                     Đăng Ký
+                  </a>
+             </nav>
+         </div>
+    </header>
+     <div id="overlay-terms" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-dark-text-primary mb-8" data-key="terms.title">Điều khoản & Điều kiện Sử dụng</h1>
+            <p class="text-xs text-dark-text-secondary mb-10" data-key="terms.lastUpdated">Cập nhật lần cuối: 27/10/2025</p>
+
+            <div class="space-y-8 prose prose-invert max-w-none prose-h2:font-serif prose-h2:text-2xl prose-h2:text-dark-text-primary prose-h3:text-xl prose-h3:text-dark-text-primary prose-p:text-dark-text-secondary prose-a:text-primary-yellow hover:prose-a:text-primary-yellow-darker prose-strong:text-dark-text-primary">
+
+                <div>
+                    <h2 data-key="terms.section1.title">1. Giới thiệu</h2>
+                    <p data-key="terms.section1.p1">
+                        Chào mừng bạn đến với FoodiePro! Bằng cách truy cập hoặc sử dụng trang web và ứng dụng di động của chúng tôi (gọi chung là "Dịch vụ"), bạn đồng ý tuân thủ các Điều khoản và Điều kiện này ("Điều khoản"). Vui lòng đọc kỹ các điều khoản này trước khi sử dụng Dịch vụ. Nếu bạn không đồng ý với bất kỳ phần nào của Điều khoản, bạn không được phép truy cập Dịch vụ.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 data-key="terms.section2.title">2. Sử dụng Dịch vụ</h2>
+                    <p data-key="terms.section2.p1">
+                        Bạn đồng ý chỉ sử dụng Dịch vụ cho các mục đích hợp pháp và phù hợp với các Điều khoản này. Bạn không được sử dụng Dịch vụ theo bất kỳ cách nào có thể làm hỏng, vô hiệu hóa, quá tải hoặc làm suy yếu Dịch vụ hoặc can thiệp vào việc sử dụng Dịch vụ của bất kỳ bên nào khác.
+                    </p>
+                    <h3 data-key="terms.section2.sub1.title">Tài khoản người dùng</h3>
+                    <p data-key="terms.section2.sub1.p1">
+                        Để truy cập một số tính năng của Dịch vụ, bạn có thể cần phải tạo tài khoản. Bạn chịu trách nhiệm duy trì tính bảo mật của thông tin tài khoản của mình, bao gồm cả mật khẩu, và cho tất cả các hoạt động xảy ra dưới tài khoản của bạn.
+                    </p>
+                    <h3 data-key="terms.section2.sub2.title">Nội dung người dùng</h3>
+                    <p data-key="terms.section2.sub2.p1">
+                        Bạn chịu trách nhiệm về mọi nội dung bạn đăng tải, chia sẻ hoặc cung cấp thông qua Dịch vụ, bao gồm đánh giá, hình ảnh và bình luận ("Nội dung người dùng"). Bạn cấp cho FoodiePro quyền không độc quyền, miễn phí bản quyền, trên toàn thế giới để sử dụng, sao chép, sửa đổi và hiển thị Nội dung người dùng của bạn liên quan đến việc cung cấp Dịch vụ.
+                    </p>
+                </div>
+                <div>
+                    <h2 data-key="terms.section3.title">3. Quyền Sở hữu Trí tuệ</h2>
+                    <p data-key="terms.section3.p1">
+                        Dịch vụ và nội dung gốc của nó (không bao gồm Nội dung người dùng), các tính năng và chức năng là và sẽ vẫn là tài sản độc quyền của FoodiePro và các bên cấp phép của nó. Dịch vụ được bảo vệ bởi bản quyền, nhãn hiệu và các luật khác của cả Việt Nam và nước ngoài.
+                    </p>
+                </div>
+                <div>
+                    <h2 data-key="terms.section4.title">4. Tuyên bố từ chối trách nhiệm</h2>
+                    <p data-key="terms.section4.p1">
+                        Dịch vụ được cung cấp trên cơ sở "NGUYÊN TRẠNG" và "NHƯ HIỆN CÓ". FoodiePro không đưa ra bất kỳ tuyên bố hay bảo đảm nào, dù rõ ràng hay ngụ ý, về hoạt động của Dịch vụ hoặc thông tin, nội dung hoặc tài liệu có trong đó. Bạn đồng ý rõ ràng rằng việc sử dụng Dịch vụ của bạn là rủi ro duy nhất của bạn.
+                    </p>
+                </div>
+                <div>
+                    <h2 data-key="terms.section5.title">5. Giới hạn trách nhiệm</h2>
+                    <p data-key="terms.section5.p1">
+                        Trong mọi trường hợp, FoodiePro, các giám đốc, nhân viên, đối tác, đại lý, nhà cung cấp hoặc chi nhánh của FoodiePro sẽ không chịu trách nhiệm pháp lý cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, do hậu quả hoặc trừng phạt nào, bao gồm nhưng không giới hạn ở việc mất lợi nhuận, dữ liệu, việc sử dụng, thiện chí hoặc các tổn thất vô hình khác, phát sinh từ (i) việc bạn truy cập hoặc sử dụng hoặc không thể truy cập hoặc sử dụng Dịch vụ; (ii) bất kỳ hành vi hoặc nội dung nào của bất kỳ bên thứ ba nào trên Dịch vụ.
+                    </p>
+                </div>
+                <div>
+                    <h2 data-key="terms.section6.title">6. Thay đổi Điều khoản</h2>
+                    <p data-key="terms.section6.p1">
+                        Chúng tôi có quyền, theo quyết định riêng của mình, sửa đổi hoặc thay thế các Điều khoản này bất kỳ lúc nào. Nếu bản sửa đổi là quan trọng, chúng tôi sẽ cố gắng cung cấp thông báo trước ít nhất 30 ngày trước khi bất kỳ điều khoản mới nào có hiệu lực. Điều gì cấu thành một thay đổi quan trọng sẽ được xác định theo quyết định riêng của chúng tôi.
+                    </p>
+                </div>
+                 <div>
+                    <h2 data-key="terms.section7.title">7. Liên hệ</h2>
+                    <p data-key="terms.section7.p1">
+                        Nếu bạn có bất kỳ câu hỏi nào về các Điều khoản này, vui lòng <a href="contact.html" class="underline" data-key="nav.contact">liên hệ với chúng tôi</a>.
+                    </p>
+                 </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black text-dark-text-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Cẩm nang của những tín đồ ẩm thực
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="../recommend/recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="../about/about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="../privacy/privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="../FAQ/faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'terms.pageTitle': 'Điều khoản & Điều kiện - FoodiePro',
+                'terms.title': 'Điều khoản & Điều kiện Sử dụng',
+                'terms.lastUpdated': 'Cập nhật lần cuối: 27/10/2025',
+                'terms.section1.title': '1. Giới thiệu',
+                'terms.section1.p1': 'Chào mừng bạn đến với FoodiePro! Bằng cách truy cập hoặc sử dụng trang web và ứng dụng di động của chúng tôi (gọi chung là "Dịch vụ"), bạn đồng ý tuân thủ các Điều khoản và Điều kiện này ("Điều khoản"). Vui lòng đọc kỹ các điều khoản này trước khi sử dụng Dịch vụ. Nếu bạn không đồng ý với bất kỳ phần nào của Điều khoản, bạn không được phép truy cập Dịch vụ.',
+                'terms.section2.title': '2. Sử dụng Dịch vụ',
+                'terms.section2.p1': 'Bạn đồng ý chỉ sử dụng Dịch vụ cho các mục đích hợp pháp và phù hợp với các Điều khoản này. Bạn không được sử dụng Dịch vụ theo bất kỳ cách nào có thể làm hỏng, vô hiệu hóa, quá tải hoặc làm suy yếu Dịch vụ hoặc can thiệp vào việc sử dụng Dịch vụ của bất kỳ bên nào khác.',
+                'terms.section2.sub1.title': 'Tài khoản người dùng',
+                'terms.section2.sub1.p1': 'Để truy cập một số tính năng của Dịch vụ, bạn có thể cần phải tạo tài khoản. Bạn chịu trách nhiệm duy trì tính bảo mật của thông tin tài khoản của mình, bao gồm cả mật khẩu, và cho tất cả các hoạt động xảy ra dưới tài khoản của bạn.',
+                'terms.section2.sub2.title': 'Nội dung người dùng',
+                'terms.section2.sub2.p1': 'Bạn chịu trách nhiệm về mọi nội dung bạn đăng tải, chia sẻ hoặc cung cấp thông qua Dịch vụ, bao gồm đánh giá, hình ảnh và bình luận ("Nội dung người dùng"). Bạn cấp cho FoodiePro quyền không độc quyền, miễn phí bản quyền, trên toàn thế giới để sử dụng, sao chép, sửa đổi và hiển thị Nội dung người dùng của bạn liên quan đến việc cung cấp Dịch vụ.',
+                'terms.section3.title': '3. Quyền Sở hữu Trí tuệ',
+                'terms.section3.p1': 'Dịch vụ và nội dung gốc của nó (không bao gồm Nội dung người dùng), các tính năng và chức năng là và sẽ vẫn là tài sản độc quyền của FoodiePro và các bên cấp phép của nó. Dịch vụ được bảo vệ bởi bản quyền, nhãn hiệu và các luật khác của cả Việt Nam và nước ngoài.',
+                'terms.section4.title': '4. Tuyên bố từ chối trách nhiệm',
+                'terms.section4.p1': 'Dịch vụ được cung cấp trên cơ sở "NGUYÊN TRẠNG" và "NHƯ HIỆN CÓ". FoodiePro không đưa ra bất kỳ tuyên bố hay bảo đảm nào, dù rõ ràng hay ngụ ý, về hoạt động của Dịch vụ hoặc thông tin, nội dung hoặc tài liệu có trong đó. Bạn đồng ý rõ ràng rằng việc sử dụng Dịch vụ của bạn là rủi ro duy nhất của bạn.',
+                'terms.section5.title': '5. Giới hạn trách nhiệm',
+                'terms.section5.p1': 'Trong mọi trường hợp, FoodiePro, các giám đốc, nhân viên, đối tác, đại lý, nhà cung cấp hoặc chi nhánh của FoodiePro sẽ không chịu trách nhiệm pháp lý cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, do hậu quả hoặc trừng phạt nào, bao gồm nhưng không giới hạn ở việc mất lợi nhuận, dữ liệu, việc sử dụng, thiện chí hoặc các tổn thất vô hình khác, phát sinh từ (i) việc bạn truy cập hoặc sử dụng hoặc không thể truy cập hoặc sử dụng Dịch vụ; (ii) bất kỳ hành vi hoặc nội dung nào của bất kỳ bên thứ ba nào trên Dịch vụ.',
+                'terms.section6.title': '6. Thay đổi Điều khoản',
+                'terms.section6.p1': 'Chúng tôi có quyền, theo quyết định riêng của mình, sửa đổi hoặc thay thế các Điều khoản này bất kỳ lúc nào. Nếu bản sửa đổi là quan trọng, chúng tôi sẽ cố gắng cung cấp thông báo trước ít nhất 30 ngày trước khi bất kỳ điều khoản mới nào có hiệu lực. Điều gì cấu thành một thay đổi quan trọng sẽ được xác định theo quyết định riêng của chúng tôi.',
+                'terms.section7.title': '7. Liên hệ',
+                'terms.section7.p1': 'Nếu bạn có bất kỳ câu hỏi nào về các Điều khoản này, vui lòng liên hệ với chúng tôi.',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'terms.pageTitle': 'Terms & Conditions - FoodiePro',
+                'terms.title': 'Terms & Conditions of Use',
+                'terms.lastUpdated': 'Last updated: October 27, 2025',
+                'terms.section1.title': '1. Introduction',
+                'terms.section1.p1': 'Welcome to FoodiePro! By accessing or using our website and mobile application (collectively, the "Service"), you agree to be bound by these Terms and Conditions ("Terms"). Please read these terms carefully before using the Service. If you disagree with any part of the terms, then you may not access the Service.',
+                'terms.section2.title': '2. Use of the Service',
+                'terms.section2.p1': 'You agree to use the Service only for lawful purposes and in accordance with these Terms. You may not use the Service in any manner that could damage, disable, overburden, or impair the Service or interfere with any other party\'s use of the Service.',
+                'terms.section2.sub1.title': 'User Accounts',
+                'terms.section2.sub1.p1': 'To access some features of the Service, you may need to create an account. You are responsible for safeguarding your account information, including your password, and for all activities that occur under your account.',
+                'terms.section2.sub2.title': 'User Content',
+                'terms.section2.sub2.p1': 'You are responsible for any content you post, share, or otherwise make available through the Service, including reviews, photos, and comments ("User Content"). You grant FoodiePro a non-exclusive, royalty-free, worldwide license to use, copy, modify, and display your User Content in connection with providing the Service.',
+                'terms.section3.title': '3. Intellectual Property',
+                'terms.section3.p1': 'The Service and its original content (excluding User Content), features, and functionality are and will remain the exclusive property of FoodiePro and its licensors. The Service is protected by copyright, trademark, and other laws of both Vietnam and foreign countries.',
+                'terms.section4.title': '4. Disclaimers',
+                'terms.section4.p1': 'The Service is provided on an "AS IS" and "AS AVAILABLE" basis. FoodiePro makes no representations or warranties of any kind, express or implied, as to the operation of the Service or the information, content, or materials included therein. You expressly agree that your use of the Service is at your sole risk.',
+                'terms.section5.title': '5. Limitation of Liability',
+                'terms.section5.p1': 'In no event shall FoodiePro, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service.',
+                'terms.section6.title': '6. Changes to Terms',
+                'terms.section6.p1': 'We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.',
+                'terms.section7.title': '7. Contact Us',
+                'terms.section7.p1': 'If you have any questions about these Terms, please contact us.',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-terms'); // Đổi ID
+        const btnEn = document.getElementById('btn-en-terms'); // Đổi ID
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        // Lấy các element menu cho trang này
+        const mobileMenuButton = document.getElementById('mobile-menu-button-terms');
+        const mobileMenu = document.getElementById('mobile-menu-terms');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-terms');
+        const overlay = document.getElementById('overlay-terms');
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                     if (mobileMenu && mobileMenu.contains(element)) {
+                         const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                         if (mobileElement && mobileElement.tagName !== 'INPUT' && mobileElement.tagName !== 'TEXTAREA') {
+                             mobileElement.textContent = translations[lang][key];
+                         }
+                     }
+                     if (!mobileMenu || !mobileMenu.contains(element) || element.placeholder) {
+                         if (element.placeholder && key.includes('Placeholder')) {
+                             element.placeholder = translations[lang][key];
+                         } else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                             element.textContent = translations[lang][key];
+                         }
+                     }
+                }
+            });
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['terms.pageTitle']; // Đổi key title
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+         function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>

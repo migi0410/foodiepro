@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="signin.pageTitle">Đăng Nhập - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Merriweather', 'serif'],
+            },
+            colors: {
+                'custom-emerald': '#235347',
+                'custom-emerald-darker': '#163832',
+            }
+        }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    /* Định nghĩa animation fade-in */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Áp dụng animation cho body khi trang tải */
+    body {
+        animation: fadeIn 1s ease-in-out forwards; /* Tên animation, thời gian, kiểu, giữ lại trạng thái cuối */
+        opacity: 0; /* Bắt đầu ẩn đi */
+    }
+</style>
+</head>
+<body class="font-sans">
+
+    <header class="absolute top-0 left-0 w-full p-4 md:p-6 z-20">
+    <div class="container mx-auto flex justify-between items-center">
+        <div>
+             <a href="../index.html">
+                <img src="assets/logo_white.png" alt="FoodiePro Logo" class="h-[4rem]">
+             </a>
+        </div>
+        <div class="flex items-center space-x-4">
+            
+            <div class="flex items-center bg-white rounded-full p-1 border border-gray-300 shadow-sm">
+                <a href="#" id="btn-vi-signin" class="text-gray-500 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                    VI
+                </a>
+                <a href="#" id="btn-en-signin" class="text-gray-500 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                    EN
+                </a>
+            </div>
+            <a href="../index.html" class="text-gray-800 hover:text-emerald-mid-dark p-1 rounded hover:bg-gray-100" aria-label="Trang chủ">
+                <i class="fas fa-home text-xl"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+    <div class="min-h-screen flex">
+
+        <div class="hidden lg:flex w-2/5 relative items-center justify-center p-8 overflow-hidden">
+            <img src="assets/bg.png" alt="Food background" class="absolute inset-0 w-full h-full object-cover z-0">
+             <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+            <div class="relative z-20 text-center text-white">
+                <h1 class="text-4xl font-extrabold mb-4" data-key="signin.welcomeTitle">Welcome Back!</h1>
+                <p class="text-lg" data-key="signin.welcomeText">Sign in to continue your delicious journey.</p>
+            </div>
+        </div>
+
+
+        <div class="w-full lg:w-3/5 flex items-center justify-center bg-white p-6 md:p-12 pt-24 lg:pt-12">
+            <div class="w-full max-w-md">
+
+
+                <h2 class="text-4xl font-extrabold text-gray-800 mb-8 text-center lg:text-left" data-key="signin.title">Sign In</h2>
+
+                <form action="#" method="POST" class="space-y-4">
+                    <div>
+                        <input type="text" id="email_phone_signin" name="email_phone" required
+                            placeholder="Email or Phone" data-key="signin.emailPhonePlaceholder"
+                            class="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+                    </div>
+                    <div>
+                        <input type="password" id="password_signin" name="password" required
+                            placeholder="Password" data-key="signin.passwordPlaceholder"
+                            class="block w-full px-5 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-custom-emerald focus:border-custom-emerald">
+
+                        <div class="text-right mt-2">
+                            <a href="#" class="text-sm text-custom-emerald hover:text-custom-emerald-darker" data-key="signin.forgotPassword">Forgot Password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-bold text-white bg-custom-emerald hover:bg-custom-emerald-darker focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-emerald transition-colors"
+                                data-key="signin.submitBtn">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+
+                <div class="flex items-center my-6">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="flex-shrink mx-4 text-gray-500 text-sm" data-key="signin.orText">Or continue with</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <div class="space-y-4 md:space-y-0 md:flex md:space-x-4">
+                    <button class="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+                        <i class="fab fa-facebook mr-3 text-blue-600"></i> <span data-key="signin.facebookBtn">Facebook</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300">
+                        <svg class="mr-3 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691c-1.229 2.196-1.95 4.85-1.95 7.618s.721 5.422 1.95 7.618l8.309-6.447C14.046 22.84 14 21.455 14 20s.046-2.84.615-3.862l-8.309-6.447z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238c-1.801 1.191-4.043 1.91-6.471 1.91c-4.657 0-8.605-2.91-10.027-6.89l-8.239 6.35C9.074 40.582 16.03 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.16-4.087 5.571l6.19 5.238C39.99 36.63 44 30.81 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+                        <span data-key="signin.googleBtn">Google</span>
+                    </button>
+                </div>
+
+                <p class="mt-8 text-center text-sm text-gray-600">
+                    <span data-key="signin.noAccountText">Don't have an account?</span>
+                    <a href="../register/register.html" class="font-medium text-custom-emerald hover:text-custom-emerald-darker" data-key="nav.signup">
+                        Sign Up
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            'vi': {
+                'signin.pageTitle': 'Đăng Nhập - FoodiePro',
+                'signin.welcomeTitle': 'Chào Mừng Trở Lại !',
+                'signin.welcomeText': 'Đăng nhập để tiếp tục hành trình ẩm thực.',
+                'signin.title': 'Đăng Nhập',
+                'signin.emailPhonePlaceholder': 'Email hoặc Số điện thoại',
+                'signin.passwordLabel': 'Mật khẩu',
+                'signin.forgotPassword': 'Quên mật khẩu?',
+                'signin.passwordPlaceholder': 'Mật khẩu',
+                'signin.submitBtn': 'Đăng Nhập',
+                'signin.orText': 'Hoặc tiếp tục với',
+                'signin.facebookBtn': 'Facebook',
+                'signin.googleBtn': 'Google',
+                'signin.noAccountText': 'Chưa có tài khoản ?',
+                'nav.signup': 'Đăng Ký',
+                'nav.signin': 'Đăng Nhập'
+            },
+            'en': {
+                'signin.pageTitle': 'Sign In - FoodiePro',
+                'signin.welcomeTitle': 'Welcome Back !',
+                'signin.welcomeText': 'Sign in to continue your delicious journey.',
+                'signin.title': 'Sign In',
+                'signin.emailPhonePlaceholder': 'Email or Phone',
+                'signin.passwordLabel': 'Password',
+                'signin.forgotPassword': 'Forgot Password?',
+                'signin.passwordPlaceholder': 'Password',
+                'signin.submitBtn': 'Sign In',
+                'signin.orText': 'Or continue with',
+                'signin.facebookBtn': 'Facebook',
+                'signin.googleBtn': 'Google',
+                'signin.noAccountText': "Don't have an account ?",
+                'nav.signup': 'Sign Up',
+                'nav.signin': 'Sign In'
+            }
+        };
+
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        const emailPhoneInputSignin = document.getElementById('email_phone_signin');
+        const passwordInputSignin = document.getElementById('password_signin');
+        const btnViSignin = document.getElementById('btn-vi-signin');
+        const btnEnSignin = document.getElementById('btn-en-signin');
+
+        function setLanguage(lang) {
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            if (emailPhoneInputSignin) emailPhoneInputSignin.placeholder = translations[lang]['signin.emailPhonePlaceholder'];
+            if (passwordInputSignin) passwordInputSignin.placeholder = translations[lang]['signin.passwordPlaceholder'];
+            if (pageTitle) pageTitle.textContent = translations[lang]['signin.pageTitle'];
+
+            htmlTag.setAttribute('lang', lang);
+
+            if (btnViSignin && btnEnSignin) {
+                if (lang === 'vi') {
+                    btnViSignin.classList.add('bg-custom-emerald', 'text-white');
+                    btnViSignin.classList.remove('text-gray-500', 'hover:bg-gray-200');
+                    btnEnSignin.classList.add('text-gray-500', 'hover:bg-gray-200');
+                    btnEnSignin.classList.remove('bg-custom-emerald', 'text-white');
+                } else {
+                    btnEnSignin.classList.add('bg-custom-emerald', 'text-white');
+                    btnEnSignin.classList.remove('text-gray-500', 'hover:bg-gray-200');
+                    btnViSignin.classList.add('text-gray-500', 'hover:bg-gray-200');
+                    btnViSignin.classList.remove('bg-custom-emerald', 'text-white');
+                }
+            }
+
+            localStorage.setItem('language', lang);
+        }
+
+        if (btnViSignin) {
+            btnViSignin.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+        if (btnEnSignin) {
+            btnEnSignin.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginForm = document.querySelector('form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Ngăn form tự gửi
+
+                // Lấy dữ liệu
+                const email_or_phone = document.getElementById('email_phone_signin').value;
+                const password = document.getElementById('password_signin').value;
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email_or_phone: email_or_phone,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        // Nếu server trả về lỗi (sai mật khẩu, user không tồn tại)
+                        alert('Lỗi: ' + data.message);
+                    } else {
+                        // Đăng nhập thành công
+                        alert('Đăng nhập thành công!');
+                        
+                        // Lưu token vào localStorage
+                        localStorage.setItem('token', data.token);
+                        
+                        // Chuyển về trang chủ
+                        window.location.href = '../index.html'; 
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi gọi API:', error);
+                    alert('Đã xảy ra lỗi. Vui lòng thử lại.');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

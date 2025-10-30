@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-key="about.pageTitle">Về Chúng Tôi - FoodiePro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif']
+            },
+            colors: {
+                'primary-yellow': '#FBBF24',
+                'primary-yellow-darker': '#F59E0B',
+                'dark-bg': '#111827',
+                'dark-card': '#1f2937',
+                'dark-text-primary': '#F9FAFB',
+                'dark-text-secondary': '#9CA3AF',
+                'emerald-darkest': '#051F20',
+                'emerald-light': '#DAF1DE',
+            }
+        }
+        }
+    }
+    </script>
+    <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    body { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-dark-bg text-dark-text-secondary">
+
+    <header class="sticky top-0 w-full bg-dark-bg shadow-md z-30 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                 <a href="../index.html">
+                    <img src="assets/logo.png" alt="FoodiePro Logo" class="h-[5rem]">
+                 </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-dark-text-primary">
+                     <a href="../index.html" class="hover:text-primary-yellow transition-colors" data-key="nav.home">Trang chủ</a>
+                     <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors" data-key="nav.recommend">Nhà hàng</a>
+                     <a href="about.html" class="text-primary-yellow transition-colors font-semibold" data-key="nav.about">Về chúng tôi</a>
+                     <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors" data-key="nav.faq">FAQ</a>
+                     <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors" data-key="nav.contact">Liên hệ</a>
+                 </nav>
+                <div class="flex items-center bg-dark-card rounded-full p-1 border border-gray-700">
+                    <a href="#" id="btn-vi-about" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        VI
+                    </a>
+                    <a href="#" id="btn-en-about" class="text-gray-400 text-xs font-bold rounded-full px-3 py-1 transition-colors">
+                        EN
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-4">
+                     <a href="../sign_in/sign_in.html" class="text-dark-text-primary font-medium text-sm hover:text-primary-yellow transition-colors" data-key="nav.signin">
+                        Đăng Nhập
+                     </a>
+                     <a href="../register/register.html" class="bg-primary-yellow text-black font-bold text-sm px-5 py-2 rounded-md hover:bg-primary-yellow-darker transition-colors" data-key="nav.signup">
+                        Đăng Ký
+                     </a>
+                 </div>
+                 <button id="mobile-menu-button-about" class="text-dark-text-primary hover:text-primary-yellow p-1 rounded hover:bg-dark-card md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                 </button>
+            </div>
+        </div>
+         <div id="mobile-menu-about"
+              class="md:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-dark-card shadow-lg p-6 z-40 transform translate-x-full transition-transform duration-300 ease-in-out">
+              <button id="mobile-menu-close-button-about" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">
+                   &times;
+              </button>
+             <nav class="flex flex-col space-y-4 text-base font-medium text-dark-text-primary mt-10">
+                 <a href="../index.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.home">Trang chủ</a>
+                 <a href="../recommend/recommend.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.recommend">Nhà hàng</a>
+                 <a href="about.html" class="text-primary-yellow transition-colors py-1 font-semibold" data-key="nav.about">Về chúng tôi</a>
+                 <a href="../FAQ/faq.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.faq">FAQ</a>
+                 <a href="../contact/contact.html" class="hover:text-primary-yellow transition-colors py-1" data-key="nav.contact">Liên hệ</a>
+                 <hr class="border-gray-600 my-4">
+                 <a href="../sign_in/sign_in.html" class="hover:text-primary-yellow transition-colors py-2 text-center" data-key="nav.signin">
+                     Đăng Nhập
+                  </a>
+                  <a href="../register/register.html" class="bg-primary-yellow text-black font-bold py-2 rounded-md hover:bg-primary-yellow-darker transition-colors w-full text-center" data-key="nav.signup">
+                     Đăng Ký
+                  </a>
+             </nav>
+         </div>
+    </header>
+     <div id="overlay-about" class="fixed inset-0 bg-black/60 z-20 hidden transition-opacity duration-300 ease-in-out opacity-0"></div>
+
+
+    <main>
+        <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center text-dark-text-primary overflow-hidden pt-16 bg-dark-bg">
+            <img src="assets/team.png" alt="Team or Food collage" class="absolute inset-0 w-full h-full object-cover z-0 opacity-30">
+            <div class="relative z-20 px-6">
+                <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4" data-key="about.heroTitle">Câu Chuyện Của FoodiePro</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto text-dark-text-secondary" data-key="about.heroSubtitle">
+                    Kết nối những người yêu ẩm thực và giúp bạn khám phá hương vị đích thực mọi lúc, mọi nơi.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                     <h2 class="font-serif text-3xl md:text-4xl font-bold text-dark-text-primary mb-6" data-key="about.missionTitle">Sứ Mệnh Của Chúng Tôi</h2>
+                     <p class="mb-4" data-key="about.missionText1">
+                        Sứ mệnh của FoodiePro là xây dựng một cầu nối ẩm thực vững chắc, nơi mọi người đam mê khám phá hương vị có thể dễ dàng tìm thấy những địa điểm ăn uống chất lượng, đọc được những đánh giá chân thực từ cộng đồng, và chia sẻ trải nghiệm của chính mình. Chúng tôi mong muốn trở thành người bạn đồng hành đáng tin cậy trên mọi hành trình ẩm thực của bạn.
+                     </p>
+                      <p data-key="about.missionText2">
+                        Chúng tôi tin rằng ẩm thực không chỉ là về việc ăn uống, mà còn là về văn hóa, về sự kết nối và những kỷ niệm. Mỗi món ăn, mỗi nhà hàng đều ẩn chứa một câu chuyện độc đáo. FoodiePro ra đời để giúp bạn khám phá và viết nên những câu chuyện ẩm thực đáng nhớ nhất, làm phong phú thêm cuộc sống của bạn.
+                     </p>
+                </div>
+                 <div>
+                    <img src="assets/eating.png" alt="People sharing food" class="rounded-lg shadow-lg w-full h-auto object-cover max-h-96">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-dark-bg py-16 md:py-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                 <div>
+                    <img src="assets/fpt.jpg" alt="FPT University Students" class="rounded-lg shadow-lg w-full h-auto object-cover max-h-96">
+                </div>
+                <div class="md:pl-8">
+                     <h2 class="font-serif text-3xl md:text-4xl font-bold text-dark-text-primary mb-6" data-key="about.storyTitle">Hành Trình FoodiePro</h2>
+                     <p class="mb-4" data-key="about.storyText1">
+                        FoodiePro bắt nguồn từ dự án môn học Khởi nghiệp tại Trường Đại học FPT. Nhận thấy sự phân mảnh thông tin và khó khăn trong việc tìm kiếm địa điểm ẩm thực đáng tin cậy cho sinh viên và cộng đồng xung quanh, nhóm chúng tôi đã nung nấu ý tưởng về một nền tảng tập trung, nơi mọi người có thể dễ dàng khám phá, đánh giá và chia sẻ những trải nghiệm ăn uống chân thực.
+                     </p>
+                     <p data-key="about.storyText2">
+                        Từ những buổi học trên giảng đường, qua quá trình nghiên cứu thị trường và phát triển sản phẩm, FoodiePro dần hình thành với mục tiêu không chỉ là một công cụ tìm kiếm, mà còn là một cộng đồng gắn kết những người yêu ẩm thực. Chúng tôi mong muốn ứng dụng kiến thức đã học để tạo ra một giải pháp hữu ích, góp phần làm phong phú thêm đời sống ẩm thực.
+                     </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="relative bg-dark-card py-16 md:py-20 overflow-hidden">
+             <img src="assets/cta-background.jpg" alt="Delicious food background" class="absolute inset-0 w-full h-full object-cover z-0 opacity-25">
+             <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-dark-card/80 to-dark-card/60 z-10"></div>
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-text-primary mb-4" data-key="about.ctaTitle">
+                    Sẵn Sàng Khám Phá?
+                </h2>
+                <p class="text-lg text-dark-text-secondary mb-8 max-w-xl mx-auto" data-key="about.ctaSubtitle">
+                    Bắt đầu hành trình tìm kiếm những bữa ăn tuyệt vời tiếp theo của bạn cùng FoodiePro ngay hôm nay!
+                </p>
+                <a href="../index.html" class="inline-block bg-primary-yellow text-black font-bold py-3 px-8 rounded-md hover:bg-primary-yellow-darker transition-colors text-lg shadow-md" data-key="about.ctaButton">
+                    Tìm Nhà Hàng Ngay
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-dark-text-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="FoodiePro Logo" class="h-16">
+                    </a>
+                    <p class="text-base mt-2" data-key="footer.tagline">
+                        Nơi khám phá ẩm thực tuyệt vời.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.mainTitle">CHÍNH</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../index.html" class="hover:text-primary-yellow" data-key="nav.home">Trang chủ</a>
+                        <a href="../recommend/recommend.html" class="hover:text-primary-yellow" data-key="nav.recommend">Nhà hàng đề xuất</a>
+                        <a href="about.html" class="hover:text-primary-yellow" data-key="nav.about">Về chúng tôi</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.supportTitle">HỖ TRỢ</h4>
+                    <nav class="flex flex-col space-y-2 text-sm">
+                        <a href="../contact/contact.html" class="hover:text-primary-yellow" data-key="nav.contact">Liên hệ</a>
+                        <a href="../terms/terms.html" class="hover:text-primary-yellow" data-key="footer.terms">Điều khoản & Điều kiện</a>
+                        <a href="../privacy/privacy.html" class="hover:text-primary-yellow" data-key="footer.privacy">Chính sách bảo mật</a>
+                        <a href="../FAQ/faq.html" class="hover:text-primary-yellow" data-key="nav.faq">FAQ</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-key="footer.socialsTitle">MẠNG XÃ HỘI</h4>
+                    <div class="flex space-x-4">
+                         <a href="https://www.facebook.com/profile.php?id=61583092465967" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Facebook">
+                             <i class="fab fa-facebook-f fa-lg"></i>
+                         </a>
+                         <a href="https://www.tiktok.com/@foodiepro.vn" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="TikTok">
+                             <i class="fab fa-tiktok fa-lg"></i>
+                         </a>
+                         <a href="https://www.instagram.com/foodiepro.vn/" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Instagram">
+                             <i class="fab fa-instagram fa-lg"></i>
+                         </a>
+                         <a href="#" class="text-dark-text-secondary hover:text-primary-yellow" aria-label="Zalo">
+                            <i class="fas fa-comment fa-lg"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-gray-700 mb-8">
+            <p class="text-sm text-center" data-key="footer.copyright">
+                &copy; 2025 FoodiePro. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'vi': {
+                'page.title': 'FoodiePro',
+                'nav.home': 'Trang chủ',
+                'nav.recommend': 'Nhà hàng đề xuất',
+                'nav.about': 'Về chúng tôi',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Liên hệ',
+                'nav.signin': 'Đăng Nhập',
+                'nav.signup': 'Đăng Ký',
+                'about.pageTitle': 'Về Chúng Tôi - FoodiePro',
+                'about.heroTitle': 'Câu Chuyện Của FoodiePro',
+                'about.heroSubtitle': 'Kết nối những người yêu ẩm thực và giúp bạn khám phá hương vị đích thực mọi lúc, mọi nơi.',
+                'about.missionTitle': 'Sứ Mệnh Của Chúng Tôi',
+                'about.missionText1': 'Sứ mệnh của FoodiePro là xây dựng một cầu nối ẩm thực vững chắc, nơi mọi người đam mê khám phá hương vị có thể dễ dàng tìm thấy những địa điểm ăn uống chất lượng, đọc được những đánh giá chân thực từ cộng đồng, và chia sẻ trải nghiệm của chính mình. Chúng tôi mong muốn trở thành người bạn đồng hành đáng tin cậy trên mọi hành trình ẩm thực của bạn.',
+                'about.missionText2': 'Chúng tôi tin rằng ẩm thực không chỉ là về việc ăn uống, mà còn là về văn hóa, về sự kết nối và những kỷ niệm. Mỗi món ăn, mỗi nhà hàng đều ẩn chứa một câu chuyện độc đáo. FoodiePro ra đời để giúp bạn khám phá và viết nên những câu chuyện ẩm thực đáng nhớ nhất, làm phong phú thêm cuộc sống của bạn.',
+                'about.storyTitle': 'Hành Trình FoodiePro',
+                'about.storyText1': 'FoodiePro bắt nguồn từ dự án môn học Khởi nghiệp tại Trường Đại học FPT. Nhận thấy sự phân mảnh thông tin và khó khăn trong việc tìm kiếm địa điểm ẩm thực đáng tin cậy cho sinh viên và cộng đồng xung quanh, nhóm chúng tôi đã nung nấu ý tưởng về một nền tảng tập trung, nơi mọi người có thể dễ dàng khám phá, đánh giá và chia sẻ những trải nghiệm ăn uống chân thực.',
+                'about.storyText2': 'Từ những buổi học trên giảng đường, qua quá trình nghiên cứu thị trường và phát triển sản phẩm, FoodiePro dần hình thành với mục tiêu không chỉ là một công cụ tìm kiếm, mà còn là một cộng đồng gắn kết những người yêu ẩm thực. Chúng tôi mong muốn ứng dụng kiến thức đã học để tạo ra một giải pháp hữu ích, góp phần làm phong phú thêm đời sống ẩm thực.',
+                'about.ctaTitle': 'Sẵn Sàng Khám Phá?',
+                'about.ctaSubtitle': 'Bắt đầu hành trình tìm kiếm những bữa ăn tuyệt vời tiếp theo của bạn cùng FoodiePro ngay hôm nay!',
+                'about.ctaButton': 'Tìm Nhà Hàng Ngay',
+                'footer.tagline': 'Cẩm nang của những tín đồ ẩm thực',
+                'footer.mainTitle': 'CHÍNH',
+                'footer.supportTitle': 'HỖ TRỢ',
+                'footer.terms': 'Điều khoản & Điều kiện',
+                'footer.privacy': 'Chính sách bảo mật',
+                'footer.socialsTitle': 'MẠNG XÃ HỘI',
+                'footer.copyright': '© 2025 FoodiePro. Bảo lưu mọi quyền.'
+            },
+            'en': {
+                'page.title': 'FoodiePro - Discover Cuisines',
+                'nav.home': 'Home',
+                'nav.recommend': 'Recommendations',
+                'nav.about': 'About Us',
+                'nav.faq': 'FAQ',
+                'nav.contact': 'Contact',
+                'nav.signin': 'Sign In',
+                'nav.signup': 'Sign Up',
+                'about.pageTitle': 'About Us - FoodiePro',
+                'about.heroTitle': 'The FoodiePro Story',
+                'about.heroSubtitle': 'Connecting food lovers and helping you discover authentic flavors, anytime, anywhere.',
+                'about.missionTitle': 'Our Mission',
+                'about.missionText1': 'FoodiePro\'s mission is to build a strong culinary bridge where everyone passionate about exploring flavors can easily find quality dining spots, read authentic community reviews, and share their own experiences. We aim to be your trusted companion on every culinary journey.',
+                'about.missionText2': 'We believe that food is not just about eating, but also about culture, connection, and memories. Every dish, every restaurant holds a unique story. FoodiePro was created to help you discover and write the most memorable culinary stories, enriching your life.',
+                'about.storyTitle': 'The FoodiePro Journey',
+                'about.storyText1': 'FoodiePro originated as a project for the Entrepreneurship course at FPT University. Recognizing the fragmented information and the difficulty for students and the surrounding community in finding reliable dining spots, our team conceived the idea of a centralized platform where everyone can easily discover, review, and share authentic dining experiences.',
+                'about.storyText2': 'From classroom lectures, through market research and product development, FoodiePro gradually took shape with the goal of being not just a search tool, but also a community connecting food lovers. We aspire to apply our learned knowledge to create a useful solution that contributes to enriching the culinary scene.',
+                'about.ctaTitle': 'Ready to Explore?',
+                'about.ctaSubtitle': 'Start your next great meal journey with FoodiePro today!',
+                'about.ctaButton': 'Find Restaurants Now',
+                'footer.tagline': 'A handbook for food lovers',
+                'footer.mainTitle': 'MAIN',
+                'footer.supportTitle': 'SUPPORT',
+                'footer.terms': 'Terms & Condition',
+                'footer.privacy': 'Privacy Policy',
+                'footer.socialsTitle': 'SOCIALS',
+                'footer.copyright': '© 2025 FoodiePro. All Rights Reserved.'
+            }
+        };
+
+        const btnVi = document.getElementById('btn-vi-about');
+        const btnEn = document.getElementById('btn-en-about');
+        const elementsToTranslate = document.querySelectorAll('[data-key]');
+        const pageTitle = document.querySelector('title');
+        const htmlTag = document.documentElement;
+        const mobileMenuButton = document.getElementById('mobile-menu-button-about'); // ID mới
+        const mobileMenu = document.getElementById('mobile-menu-about'); // ID mới
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button-about'); // ID mới
+        const overlay = document.getElementById('overlay-about'); // ID mới
+
+        function setLanguage(lang) {
+             if (btnVi && btnEn) {
+                 if (lang === 'vi') {
+                    btnVi.classList.add('bg-primary-yellow', 'text-black');
+                    btnVi.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnEn.classList.remove('bg-primary-yellow', 'text-black');
+                } else {
+                    btnEn.classList.add('bg-primary-yellow', 'text-black');
+                    btnEn.classList.remove('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.add('text-gray-400', 'hover:bg-gray-700');
+                    btnVi.classList.remove('bg-primary-yellow', 'text-black');
+                }
+            }
+
+            elementsToTranslate.forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang] && translations[lang][key]) {
+                     if (mobileMenu && mobileMenu.contains(element)) {
+                         const mobileElement = mobileMenu.querySelector(`[data-key="${key}"]`);
+                         if (mobileElement && mobileElement.tagName !== 'INPUT' && mobileElement.tagName !== 'TEXTAREA') {
+                             mobileElement.textContent = translations[lang][key];
+                         }
+                     }
+                     if (!mobileMenu || !mobileMenu.contains(element) || element.placeholder) {
+                         if (element.placeholder && key.includes('Placeholder')) {
+                             element.placeholder = translations[lang][key];
+                         } else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+                             element.textContent = translations[lang][key];
+                         }
+                     }
+                }
+            });
+
+            if (pageTitle) pageTitle.textContent = translations[lang]['about.pageTitle'];
+
+            htmlTag.setAttribute('lang', lang);
+            localStorage.setItem('language', lang);
+        }
+
+        function openMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.remove('hidden');
+                overlay.offsetWidth;
+                overlay.classList.remove('opacity-0');
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu && overlay) {
+                overlay.classList.add('opacity-0');
+                mobileMenu.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+
+        if (btnVi) {
+            btnVi.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('vi');
+            });
+        }
+       if (btnEn) {
+            btnEn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setLanguage('en');
+            });
+        }
+
+       if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuCloseButton) {
+            mobileMenuCloseButton.addEventListener('click', closeMobileMenu);
+        }
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('font-sans');
+            const savedLang = localStorage.getItem('language') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
+
+</body>
+</html>
