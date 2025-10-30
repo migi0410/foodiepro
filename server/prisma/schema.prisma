@@ -1,0 +1,24 @@
+// Cấu hình Prisma Client
+generator client {
+  provider = "prisma-client-js"
+  // Chỉ Prisma nơi tạo client (đường dẫn mặc định)
+  output   = "../node_modules/.prisma/client" 
+}
+
+// Cấu hình kết nối database (đọc từ file .env)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Định nghĩa model (bảng) User
+model User {
+  id            Int      @id @default(autoincrement())
+  full_name     String
+  email         String?  @unique
+  phone         String?  @unique
+  password_hash String
+  created_at    DateTime @default(now())
+
+  @@map("users") // Đặt tên bảng trong CSDL là "users"
+}
